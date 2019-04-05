@@ -16,7 +16,7 @@ class Tool(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
         self.label = "Tool"
-        self.description = "abc"
+        self.description = "abc1"
         self.canRunInBackground = False
 
     def getParameterInfo(self):
