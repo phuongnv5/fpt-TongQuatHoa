@@ -1,0 +1,34 @@
+[
+	{
+		"featureDataSet": "ThuyHe",
+		"baseName": "BaiBoiA",
+		"usingParameter": [
+			{
+				"nameTool": "Simplify",
+				"algorithm": "BEND_SIMPLIFY",
+				"tolerance": "40 Meters"
+			},
+			{
+				"nameTool": "Smooth",
+				"algorithm": "PAEK",
+				"tolerance": "40 Meters"
+			}
+		]
+	},
+	{
+		"featureDataSet": "ThuyHe",
+		"baseName": "SongSuoiL",
+		"usingParameter":[
+			{
+				"nameTool": "Simplify",
+				"algorithm": "BEND_SIMPLIFY",
+				"tolerance": "50 Meters"
+			},
+			{
+				"nameTool": "Smooth",
+				"algorithm": "PAEK",
+				"tolerance": "50 Meters"
+			}
+		]
+	}
+]
