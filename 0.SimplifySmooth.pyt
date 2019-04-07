@@ -153,8 +153,7 @@ class SimplifySmooth(object):
                     CA.SmoothLine(featureClassSimplifyTemp,
                                     os.path.join(os.path.join(out_workspace, ele["featureDataSet"]), ele["baseName"]),
                                     ele["usingParameter"][1]["algorithm"],
-                                    ele["usingParameter"][1]["tolerance"],
-                                    "NO_CHECK")
+                                    ele["usingParameter"][1]["tolerance"])
                 elif ele["shapeType"] == "Polygon":
                     arcpy.AddMessage("\t# SimplifyPolygon: {0}, {1}".format(ele["usingParameter"][0]["algorithm"], ele["usingParameter"][0]["tolerance"]))
                     CA.SimplifyPolygon(featureClassTemp,
