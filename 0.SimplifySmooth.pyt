@@ -129,8 +129,6 @@ class SimplifySmooth(object):
                         fcs.append(temp)
             # Chay tool Simplify, Smooth
             for ele in fcs:
-                if ele["baseName"] != "BaiBoiA":
-                    continue
                 arcpy.AddMessage("# Simplify, Smooth: {0}\\{1} ...".format(ele["featureDataSet"], ele["baseName"]))
                 # Ban dau bo tham so = parametersDefault
                 ele["usingParameter"] = parametersDefault
