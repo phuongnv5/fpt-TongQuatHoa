@@ -6,12 +6,12 @@
 			{
 				"nameTool": "Simplify",
 				"algorithm": "BEND_SIMPLIFY",
-				"tolerance": "40 Meters"
+				"tolerance": "50 Meters"
 			},
 			{
 				"nameTool": "Smooth",
 				"algorithm": "PAEK",
-				"tolerance": "40 Meters"
+				"tolerance": "50 Meters"
 			}
 		]
 	},
