@@ -1,7 +1,7 @@
 [
     {
         "ProcessType": [
-42            {
+42          {
                 "ToolName": "Simplify Line", 
                 "Tolerance": "50 Meters", 
                 "Collapsed_Point_Option": "NO_KEEP", 
