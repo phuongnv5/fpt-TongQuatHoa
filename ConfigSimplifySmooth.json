@@ -382,6 +382,373 @@
                 "Algorithm": "PAEK"
             }
         ], 
+        "Layer": "GiaoThong\\HamDiBoL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\CongGiaoThongA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\DuongCapTreo_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\BenBaiA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\BenBaiL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\CauDiBoL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\CauGiaoThongA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\CauGiaoThongL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\CongGiaoThongL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\DoanDuongSat_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\DoanTimDuongBo_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\DoanVuotSongSuoiL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\DuongNoiBoA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\DuongNoiBoL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\HamGiaoThongA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\HamGiaoThongL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\MatDuongBo_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\RanhGioiDuongBo_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "GiaoThong\\TaluyGiaoThong_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
         "Layer": "DanCuCoSoHaTang\\NhaL", 
         "RunTools": "True"
     }, 
@@ -598,6 +965,222 @@
                 "Algorithm": "PAEK"
             }
         ], 
+        "Layer": "DanCuCoSoHaTang\\NhaL_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\DuongDayTaiDien_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\DiemDanCuA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\DuongOngDan_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\KhuChucNangA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\NhaA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\RanhGioiTuongRao_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\TramDienA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\TramQuanTracA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\CongTrinhKienTrucDacBietA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DanCuCoSoHaTang\\TramThuPhatSongA_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
         "Layer": "DiaHinh\\NetChiDoc", 
         "RunTools": "True"
     }, 
@@ -657,6 +1240,45 @@
             }
         ], 
         "Layer": "DiaHinh\\DuongBinhDo", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "ToolName": "Simplify Line", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
+                "ToolName": "Smooth Line", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DiaHinh\\NetChiDoc_Simplify_Smooth", 
+        "RunTools": "True"
+    }, 
+    {
+        "ProcessType": [
+            {
+                "MinimumArea": "0 SquareMeters", 
+                "ToolName": "Simplify Polygon", 
+                "Tolerance": "50 Meters", 
+                "Collapsed_Point_Option": "NO_KEEP", 
+                "Algorithm": "BEND_SIMPLIFY"
+            }, 
+            {
+                "Endpoint_Option": "FIXED_ENDPOINT", 
+                "ToolName": "Smooth Polygon", 
+                "Tolerance": "50 Meters", 
+                "Error_Option": "NO_CHECK", 
+                "Algorithm": "PAEK"
+            }
+        ], 
+        "Layer": "DiaHinh\\DiaHinhDacBietA_Simplify", 
         "RunTools": "True"
     }, 
     {
