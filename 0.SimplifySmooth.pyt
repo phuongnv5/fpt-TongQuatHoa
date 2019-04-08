@@ -3,6 +3,7 @@ import arcpy.cartography as CA
 import json
 import os
 
+arcpy.env.overwriteOutput = True
 in_workspace = "C:\\Generalize_25_50\\50K_Process.gdb"
 out_workspace = "C:\\Generalize_25_50\\50K_Final.gdb"
 featureClassTemp = os.path.join(in_workspace, "featureClassTemp")
@@ -129,7 +130,7 @@ class SimplifySmooth(object):
                         fcs.append(temp)
             # Chay tool Simplify, Smooth
             for ele in fcs:
-                arcpy.AddMessage("# Simplify, Smooth: {0}\\{1} ...".format(ele["featureDataSet"], ele["baseName"]))
+                #arcpy.AddMessage("# Simplify, Smooth: {0}\\{1} ...".format(ele["featureDataSet"], ele["baseName"]))
                 # Ban dau bo tham so = parametersDefault
                 ele["usingParameter"] = parametersDefault
                 # Tim kiem trong dataJSON xem featureClass co duoc cau hinh tham so hay khong:

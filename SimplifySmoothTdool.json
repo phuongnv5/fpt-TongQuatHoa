@@ -1,0 +1,36 @@
+[
+	{
+		"enable": "True",
+		"featureDataSet": "ThuyHe",
+		"baseName": "BaiBoiA",
+		"usingParameter": [
+			{
+				"nameTool": "Simplify",
+				"algorithm": "BEND_SIMPLIFY",
+				"tolerance": "50 Meters"
+			},
+			{
+				"nameTool": "Smooth",
+				"algorithm": "PAEK",
+				"tolerance": "50 Meters"
+			}
+		]
+	},
+	{
+		"enable": "True",
+		"featureDataSet": "ThuyHe",
+		"baseName": "SongSuoiA",
+		"usingParameter":[
+			{
+				"nameTool": "Simplify",
+				"algorithm": "BEND_SIMPLIFY",
+				"tolerance": "50 Meters"
+			},
+			{
+				"nameTool": "Smooth",
+				"algorithm": "PAEK",
+				"tolerance": "50 Meters"
+			}
+		]
+	}
+]
