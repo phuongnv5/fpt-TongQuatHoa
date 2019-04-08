@@ -6,7 +6,7 @@ import os
 arcpy.env.overwriteOutput = True
 in_workspace = "C:\\Generalize_25_50\\50K_Process.gdb"
 out_workspace = "C:\\Generalize_25_50\\50K_Final.gdb"
-urlFile = "C:\\TQHBD\\ArcGIS_Tools\\fpt-TongQuatHoa\\fpt-TongQuatHoa\\ConfigSimplifySmooth.json"
+urlFile = "C:\\TQHBD\\ArcGIS_Tools\\fpt-TongQuatHoa\\ConfigSimplifySmooth.json"
 
 class Toolbox(object):
     def __init__(self):
