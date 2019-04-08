@@ -98,7 +98,6 @@ class CreateFileConfig(object):
                                             "ToolName": "Simplify Line",
                                             "Algorithm": parameters[0].valueAsText,
                                             "Tolerance": parameters[1].valueAsText,
-                                            "MinimumArea": "0 SquareMeters",
                                             "Collapsed_Point_Option": "NO_KEEP"
                                         },
                                         {
@@ -184,15 +183,15 @@ class SimplifySmooth(object):
                         if arcpy.Exists(fc):
                             if ele["ProcessType"][0]["ToolName"] == "Simplify Polygon" and ele["ProcessType"][1]["ToolName"] == "Smooth Polygon":
                                 try:
-                                    arcpy.AddMessage("\t# Simplify Polygon: {0}".format(ele["Layer"]))
+                                    arcpy.AddMessage("\t# Simplify Polygon: {0}, {1}".format(ele["ProcessType"][0]["Algorithm"], ele["ProcessType"][0]["Tolerance"]))
                                     CA.SimplifyPolygon(in_features = fc,
                                                     out_feature_class = fc + "_Simplify",
                                                     algorithm = ele["ProcessType"][0]["Algorithm"],
                                                     tolerance = ele["ProcessType"][0]["Tolerance"],
-                                                    minimum_area = "#",
+                                                    minimum_area = ele["ProcessType"][0]["MinimumArea"],
                                                     collapsed_point_option = ele["ProcessType"][0]["Collapsed_Point_Option"])
                                     arcpy.DeleteField_management(fc + "_Simplify", ["InPoly_FID", "SimPgnFlag", "MaxSimpTol", "MinSimpTol"])
-                                    arcpy.AddMessage("\t# Smooth Polygon: {0}".format(ele["Layer"]))
+                                    arcpy.AddMessage("\t# Smooth Polygon: {0}, {1}".format(ele["ProcessType"][1]["Algorithm"], ele["ProcessType"][1]["Tolerance"]))
                                     CA.SmoothPolygon(in_features = fc + "_Simplify",
                                                     out_feature_class = fc + "_Simplify_Smooth",
                                                     algorithm = ele["ProcessType"][1]["Algorithm"],
@@ -205,14 +204,14 @@ class SimplifySmooth(object):
                                     arcpy.AddError(arcpy.GetMessages())
                             elif ele["ProcessType"][0]["ToolName"] == "Simplify Line" and ele["ProcessType"][1]["ToolName"] == "Smooth Line":
                                 try:
-                                    arcpy.AddMessage("\t# Simplify Line: {0}".format(ele["Layer"]))
+                                    arcpy.AddMessage("\t# Simplify Line: {0}, {1}".format(ele["ProcessType"][0]["Algorithm"], ele["ProcessType"][0]["Tolerance"]))
                                     CA.SimplifyLine(in_features = fc,
                                                     out_feature_class = fc + "_Simplify",
                                                     algorithm = ele["ProcessType"][0]["Algorithm"],
                                                     tolerance = ele["ProcessType"][0]["Tolerance"],
                                                     collapsed_point_option = ele["ProcessType"][0]["Collapsed_Point_Option"])
                                     arcpy.DeleteField_management(fc + "_Simplify", ["InPoly_FID", "SimPgnFlag", "MaxSimpTol", "MinSimpTol"])
-                                    arcpy.AddMessage("\t# Smooth Line: {0}".format(ele["Layer"]))
+                                    arcpy.AddMessage("\t# Smooth Line: {0}, {1}".format(ele["ProcessType"][1]["Algorithm"], ele["ProcessType"][1]["Tolerance"]))
                                     CA.SmoothLine(in_features = fc + "_Simplify",
                                                     out_feature_class = fc + "_Simplify_Smooth",
                                                     algorithm = ele["ProcessType"][1]["Algorithm"],
@@ -229,7 +228,7 @@ class SimplifySmooth(object):
                                     CA.SimplifyBuilding(in_features = fc,
                                                     out_feature_class = fc + "_Simplify",
                                                     simplification_tolerance = ele["ProcessType"][0]["Tolerance"],
-                                                    minimum_area = "#",
+                                                    minimum_area = ele["ProcessType"][0]["MinimumArea"],
                                                     conflict_option = ele["ProcessType"][0]["Collapsed_Point_Option"])
                                     arcpy.DeleteField_management(fc + "_Simplify", ["InPoly_FID", "SimPgnFlag", "MaxSimpTol", "MinSimpTol"])
                                     arcpy.AddMessage("\t# Smooth Polygon: {0}".format(ele["Layer"]))
