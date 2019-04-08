@@ -1,34 +1,22 @@
 [
 	{
-		"featureDataSet": "ThuyHe",
-		"baseName": "SongSuoiL",
-		"usingParameter":[
-			{
-				"nameTool": "Simplify",
-				"algorithm": "BEND_SIMPLIFY",
-				"tolerance": "50 Meters"
-			},
-			{
-				"nameTool": "Smooth",
-				"algorithm": "PAEK",
-				"tolerance": "50 Meters"
-			}
-		]
-	},
-	{
-		"featureDataSet": "ThuyHe",
-		"baseName": "BaiBoiA",
-		"usingParameter": [
-			{
-				"nameTool": "Simplify",
-				"algorithm": "BEND_SIMPLIFY",
-				"tolerance": "50 Meters"
-			},
-			{
-				"nameTool": "Smooth",
-				"algorithm": "PAEK",
-				"tolerance": "50 Meters"
-			}
-		]
+		"Layer": "ThuyHe/SongSuoiA",
+		"ProcessType": 
+			[
+				{
+					"ToolName": "Simplify Polygon",
+					"Algorithm": "BEND_SIMPLIFY",
+					"Tolerance": "50 Meters",
+					"MinimumArea": "0 Square Meters",
+					"Collapsed_Point_Option": "NO_KEEP"
+				},
+				{
+					"ToolName": "Smooth Polygon",
+					"Algorithm": "PAKE",
+					"Tolerance": "50 Meters",
+					"Endpoint_Option": "FIXED_ENDPOINT",
+					"Error_Option": "NO_CHECK"
+				}
+			]
 	}
 ]

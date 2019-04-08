@@ -41,4 +41,14 @@ class Tool(object):
 
     def execute(self, parameters, messages):
         """The source code of the tool."""
+        arcpy.env.overwriteOutput = 1
+        _path_Layer_NhaP = "C:/Generalize_25_50/50K_Process.gdb/DanCuCoSoHaTang/NhaP"
+        _path_Layer_NhaP_Copy = "C:/Generalize_25_50/50K_Process.gdb/DanCuCoSoHaTang/NhaP_Copy"
+        _path_Layer_DoanTimDuongBo = "C:/Generalize_25_50/50K_Process.gdb/GiaoThong/DoanTimDuongBo"
+        _path_Layer_DoanTimDuongBo_Buffer = "C:/Generalize_25_50/50K_Process.gdb/GiaoThong/DoanTimDuongBo_Buffer"
+
+
+        arcpy.CopyFeatures_management(_path_Layer_NhaP, _path_Layer_NhaP_Copy)
+        arcpy.Buffer_analysis(roads, roadsBuffer, distanceField, sideType, endType, dissolveType, dissolveField)
+
         return
