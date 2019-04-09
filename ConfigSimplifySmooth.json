@@ -5,18 +5,19 @@
                 "ToolName": "Simplify Line", 
                 "Tolerance": "50 Meters", 
                 "Collapsed_Point_Option": "NO_KEEP", 
-                "Algorithm": "BEND_SIMPLIFY"
+                "Algorithm": "BEND_SIMPLIFY",
+                "RunStatus": "True"
             }, 
             {
                 "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
                 "ToolName": "Smooth Line", 
                 "Tolerance": "50 Meters", 
                 "Error_Option": "NO_CHECK", 
-                "Algorithm": "PAEK"
+                "Algorithm": "PAEK",
+                "RunStatus": "True"
             }
         ], 
-        "Layer": "GiaoThong\\HamDiBoL", 
-        "RunTools": "True"
+        "Layer": "GiaoThong\\HamDiBoL"
     }, 
     {
         "ProcessType": [
