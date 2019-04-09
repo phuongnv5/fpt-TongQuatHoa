@@ -17,7 +17,13 @@
                 "RunStatus": "True"
             }
         ], 
-        "Layer": "GiaoThong\\HamDiBoL"
+        "BarrierLayers": [
+            {
+                "Layer": "GiaoThong\\HamDiBoL"
+            }
+        ],
+        "Layer": "GiaoThong\\HamDiBoL",
+        "OrderNumber": "1"
     }, 
     {
         "ProcessType": [
