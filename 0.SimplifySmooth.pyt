@@ -5,7 +5,6 @@ import os
 
 arcpy.env.overwriteOutput = True
 in_workspace = "C:\\Generalize_25_50\\50K_Process.gdb"
-arcpy.env.workspace = in_workspace
 out_workspace = "C:\\Generalize_25_50\\50K_Final.gdb"
 urlFile = "C:\\TQHBD\\ArcGIS_Tools\\fpt-TongQuatHoa\\fpt-TongQuatHoa\\ConfigSimplifySmooth.json"
 
@@ -173,103 +172,81 @@ class SimplifySmooth(object):
             arcpy.AddMessage("\n# Reading File Config: \"{0}\"".format(urlFile))
             dataJSON = None
             if os.path.exists(urlFile):
-                try:
-                    f = open(urlFile)
-                    dataJSON = json.load(f)
-                    f.close()
-                    # Sap xep theo OrderNumber
-                    def returnKey(elem):
-                        return int(elem["OrderNumber"])
-                    dataJSON.sort(key = returnKey, reverse = False)
-                    # Simplify, Smooth
-                    for elem in dataJSON:
-                        arcpy.AddMessage(os.path.join(in_workspace, elem["Layer"]))
-                        fc = os.path.join(in_workspace, elem["Layer"])
-                        if arcpy.Exists(fc):
-                            # Create in_barries:
-                            in_barriers = []
-                            if len(elem["BarrierLayers"]) > 0:
-                                for elemSub in elem["BarrierLayers"]:
-                                    in_barriers.append(os.path.join(in_workspace, elemSub["Layer"]))
-                            else:
-                                in_barriers = "#"
-                            arcpy.AddMessage(in_barriers)
-                            arcpy.AddMessage("{0}, {1}".format(elem["ProcessType"][0]["ToolName"], elem["ProcessType"][0]["RunStatus"]))
-                            # Simplify
-                            if elem["ProcessType"][0]["ToolName"] == "Simplify Polygon" and elem["ProcessType"][0]["RunStatus"] == "True":
-                                arcpy.AddMessage("\t# Simplify Polygon: {0}, {1}".format(elem["ProcessType"][0]["Algorithm"], elem["ProcessType"][0]["Tolerance"]))
-                                try:
-                                    CA.SimplifyPolygon(in_features = fc,
-                                                    out_feature_class = fc + "_Simplify",
-                                                    algorithm = elem["ProcessType"][0]["Algorithm"],
-                                                    tolerance = elem["ProcessType"][0]["Tolerance"],
-                                                    collapsed_point_option = elem["ProcessType"][0]["Collapsed_Point_Option"],
-                                                    in_barriers = in_barriers)
-                                    arcpy.CopyFeatures_management(fc + "_Simplify", fc)
-                                    #arcpy.Delete_management(fc + "_Simplify")
-                                except:
-                                    arcpy.AddError(arcpy.GetMessages())
-                            elif elem["ProcessType"][0]["ToolName"] == "Simplify Line" and elem["ProcessType"][0]["RunStatus"] == "True":
-                                arcpy.AddMessage("\t# Simplify Line: {0}, {1}".format(elem["ProcessType"][0]["Algorithm"], elem["ProcessType"][0]["Tolerance"]))
-                                try:
-                                    CA.SimplifyLine(in_features = fc,
-                                                    out_feature_class = fc + "_Simplify",
-                                                    algorithm = elem["ProcessType"][0]["Algorithm"],
-                                                    tolerance = elem["ProcessType"][0]["Tolerance"],
-                                                    collapsed_point_option = elem["ProcessType"][0]["Collapsed_Point_Option"],
-                                                    in_barriers = in_barriers)
-                                    arcpy.CopyFeatures_management(fc + "_Simplify", fc)
-                                    #arcpy.Delete_management(fc + "_Simplify")
-                                except:
-                                    arcpy.AddError(arcpy.GetMessages())
-                            elif elem["ProcessType"][0]["ToolName"] == "Simplify Building" and elem["ProcessType"][0]["RunStatus"] == "True":
-                                arcpy.AddMessage("\t# Simplify Building: {0}, {1}".format(elem["ProcessType"][0]["Algorithm"], elem["ProcessType"][0]["Tolerance"]))
-                                try:
-                                    CA.SimplifyBuilding(in_features = fc,
-                                                        out_feature_class = fc + "_Simplify",
-                                                        simplification_tolerance = elem["ProcessType"][0]["Tolerance"],
-                                                        minimum_area = elem["ProcessType"][0]["MinimumArea"],
-                                                        conflict_option = elem["ProcesssType"][0]["Collapsed_Point_Option"])
-                                    arcpy.CopyFeatures_management(fc + "_Simplify", fc)
-                                    #arcpy.Delete_management(fc + "_Simplify")
-                                except:
-                                    arcpy.AddError(arcpy.GetMessages())
-                            # Smooth
-                            if elem["ProcessType"][1]["ToolName"] == "Smooth Polygon" and elem["ProcessType"][1]["RunStatus"] == "True":
-                                arcpy.AddMessage("\t# Smooth Polygon: {0}, {1}".format(elem["ProcessType"][1]["Algorithm"], elem["ProcessType"][1]["Tolerance"]))
-                                try:
-                                    CA.SmoothPolygon(in_features = fc,
-                                                    out_feature_class = fc + "_Simplify_Smooth",
-                                                    algorithm = elem["ProcessType"][1]["Algorithm"],
-                                                    tolerance = elem["ProcessType"][1]["Tolerance"],
-                                                    endpoint_option = elem["ProcessType"][1]["Endpoint_Option"],
-                                                    error_option = elem["ProcessType"][1]["Error_Option"])
-                                    arcpy.CopyFeatures_management(fc + "_Simplify_Smooth", fc)
-                                    #arcpy.Delete_management(fc + "_Simplify_Smooth")
-                                except:
-                                    arcpy.AddError(arcpy.GetMessages())
-                            elif elem["ProcessType"][1]["ToolName"] == "Smooth Line" and elem["ProcessType"][1]["RunStatus"] == "True":
-                                arcpy.AddMessage("\t# Smooth Line: {0}, {1}".format(elem["ProcessType"][1]["Algorithm"], elem["ProcessType"][1]["Tolerance"]))
-                                try:
-                                    CA.SmoothLine(in_features = fc,
-                                                    out_feature_class = fc + "_Simplify_Smooth",
-                                                    algorithm = elem["ProcessType"][1]["Algorithm"],
-                                                    tolerance = elem["ProcessType"][1]["Tolerance"],
-                                                    endpoint_option = elem["ProcessType"][1]["Endpoint_Option"],
-                                                    error_option = elem["ProcessType"][1]["Error_Option"])
-                                    arcpy.CopyFeatures_management(fc + "_Simplify_Smooth", fc)
-                                    #arcpy.Delete_management(fc + "_Simplify_Smooth")
-                                except:
-                                    arcpy.AddError(arcpy.GetMessages())
-                        else:
-                            arcpy.AddMessage("\t# Not Found: {0}".format(fc))
-                except:
-                    arcpy.AddError(arcpy.GetMessages())
+                f = open(urlFile)
+                dataJSON = json.load(f)
+                f.close()
+                # Sap xep theo OrderNumber
+                def returnKey(elem):
+                    return int(elem["OrderNumber"])
+                dataJSON.sort(key = returnKey, reverse = False)
+                # Simplify, Smooth
+                for elem in dataJSON:
+                    arcpy.AddMessage(os.path.join(in_workspace, elem["Layer"]))
+                    fc = os.path.join(in_workspace, elem["Layer"])
+                    if arcpy.Exists(fc):
+                        # Create in_barries:
+                        in_barriers = []
+                        if len(elem["BarrierLayers"]) > 0:
+                            for elemSub in elem["BarrierLayers"]:
+                                in_barriers.append(os.path.join(in_workspace, elemSub["Layer"]))
+                        # Simplify
+                        if elem["ProcessType"][0]["ToolName"] == "Simplify Polygon" and elem["ProcessType"][0]["RunStatus"] == "True":
+                            arcpy.AddMessage("\t# Simplify Polygon: {0}, {1}".format(elem["ProcessType"][0]["Algorithm"], elem["ProcessType"][0]["Tolerance"]))
+                            CA.SimplifyPolygon(in_features = fc,
+                                                out_feature_class = fc + "_Simplify",
+                                                algorithm = elem["ProcessType"][0]["Algorithm"],
+                                                tolerance = elem["ProcessType"][0]["Tolerance"],
+                                                collapsed_point_option = elem["ProcessType"][0]["Collapsed_Point_Option"],
+                                                in_barriers = in_barriers)
+                            #arcpy.CopyFeatures_management(fc + "_Simplify", fc)
+                            #arcpy.Delete_management(fc + "_Simplify")
+                        elif elem["ProcessType"][0]["ToolName"] == "Simplify Line" and elem["ProcessType"][0]["RunStatus"] == "True":
+                            arcpy.AddMessage("\t# Simplify Line: {0}, {1}".format(elem["ProcessType"][0]["Algorithm"], elem["ProcessType"][0]["Tolerance"]))
+                            CA.SimplifyLine(in_features = fc,
+                                            out_feature_class = fc + "_Simplify",
+                                            algorithm = elem["ProcessType"][0]["Algorithm"],
+                                            tolerance = elem["ProcessType"][0]["Tolerance"],
+                                            collapsed_point_option = elem["ProcessType"][0]["Collapsed_Point_Option"],
+                                            in_barriers = in_barriers)
+                            #arcpy.CopyFeatures_management(fc + "_Simplify", fc)
+                            #arcpy.Delete_management(fc + "_Simplify")
+                        elif elem["ProcessType"][0]["ToolName"] == "Simplify Building" and elem["ProcessType"][0]["RunStatus"] == "True":
+                            arcpy.AddMessage("\t# Simplify Building: {0}, {1}".format(elem["ProcessType"][0]["Algorithm"], elem["ProcessType"][0]["Tolerance"]))
+                            CA.SimplifyBuilding(in_features = fc,
+                                                out_feature_class = fc + "_Simplify",
+                                                simplification_tolerance = elem["ProcessType"][0]["Tolerance"],
+                                                minimum_area = elem["ProcessType"][0]["MinimumArea"],
+                                                conflict_option = elem["ProcesssType"][0]["Collapsed_Point_Option"])
+                            #arcpy.CopyFeatures_management(fc + "_Simplify", fc)
+                            #arcpy.Delete_management(fc + "_Simplify")
+                        # Smooth
+                        if elem["ProcessType"][1]["ToolName"] == "Smooth Polygon" and elem["ProcessType"][1]["RunStatus"] == "True":
+                            arcpy.AddMessage("\t# Smooth Polygon: {0}, {1}".format(elem["ProcessType"][1]["Algorithm"], elem["ProcessType"][1]["Tolerance"]))
+                            CA.SmoothPolygon(in_features = fc,
+                                            out_feature_class = fc + "_Simplify_Smooth",
+                                            algorithm = elem["ProcessType"][1]["Algorithm"],
+                                            tolerance = elem["ProcessType"][1]["Tolerance"],
+                                            endpoint_option = elem["ProcessType"][1]["Endpoint_Option"],
+                                            error_option = elem["ProcessType"][1]["Error_Option"])
+                            arcpy.CopyFeatures_management(fc + "_Simplify_Smooth", fc)
+                            arcpy.Delete_management(fc + "_Simplify_Smooth")
+                        elif elem["ProcessType"][1]["ToolName"] == "Smooth Line" and elem["ProcessType"][1]["RunStatus"] == "True":
+                            arcpy.AddMessage("\t# Smooth Line: {0}, {1}".format(elem["ProcessType"][1]["Algorithm"], elem["ProcessType"][1]["Tolerance"]))
+                            CA.SmoothLine(in_features = fc,
+                                        out_feature_class = fc + "_Simplify_Smooth",
+                                        algorithm = elem["ProcessType"][1]["Algorithm"],
+                                        tolerance = elem["ProcessType"][1]["Tolerance"],
+                                        endpoint_option = elem["ProcessType"][1]["Endpoint_Option"],
+                                        error_option = elem["ProcessType"][1]["Error_Option"])
+                            arcpy.CopyFeatures_management(fc + "_Simplify_Smooth", fc)
+                            arcpy.Delete_management(fc + "_Simplify_Smooth")
+                    else:
+                        arcpy.AddMessage("\t# Not Found: {0}".format(fc))
                 arcpy.AddMessage("\n# Done!!!")
             else:
-                arcpy.AddWarning("\t# Not Found File Config: \"{0}\". Run Tools CreateFileConfig!".format(urlFile))
+                arcpy.AddMessage("\t# Not Found File Config: \"{0}\". Run Tools CreateFileConfig!".format(urlFile))
         except:
-            arcpy.AddError(arcpy.GetMessages())
+            arcpy.AddMessage(arcpy.GetMessages())
         finally:
             pass
         return

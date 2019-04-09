@@ -25,29 +25,6 @@
     {
         "ProcessType": [
             {
-                "ToolName": "Simplify Line", 
-                "Tolerance": "50 Meters", 
-                "Collapsed_Point_Option": "NO_KEEP", 
-                "Algorithm": "BEND_SIMPLIFY",
-                "RunStatus": "True"
-            }, 
-            {
-                "Endpoint_Option": "FIXED_CLOSED_ENDPOINT", 
-                "ToolName": "Smooth Line", 
-                "Tolerance": "50 Meters", 
-                "Error_Option": "NO_CHECK", 
-                "Algorithm": "PAEK",
-                "RunStatus": "True"
-            }
-        ], 
-        "BarrierLayers": [
-        ],
-        "Layer": "ThuyHe\\DuongBoNuoc",
-        "OrderNumber": "3"
-    },
-    {
-        "ProcessType": [
-            {
                 "ToolName": "Simplify Polygon", 
                 "Tolerance": "50 Meters", 
                 "Collapsed_Point_Option": "NO_KEEP", 
