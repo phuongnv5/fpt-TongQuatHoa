@@ -16,7 +16,7 @@ listFeaturePolygon = [fcBaiBoiA, fcSongSuoiA, fcMatNuocTinh]
 listFeatureLine = [fcDuongBoNuoc, fcDuongMepNuoc, fcDoanTimDuongBoClone]
 
 try:
-    arcpy.AddMessage("\n# 110420190830")
+    arcpy.AddMessage("\n# 110420191216")
     
     # Create Dict #
     ## FC Polygon ##
@@ -56,7 +56,7 @@ try:
         ### Make Feature Layer ###
         arcpy.MakeFeatureLayer_management(elem["featureCopy"], elem["featureLayer"])
     
-    # Add And Update Field OID_Clone#
+    # Add And Update Field OID_Clone #
     ## Add Field ##
     ### Feature Class Line ###
     for elem in dictListFcLine:
@@ -133,6 +133,7 @@ try:
 
     # Update #
     ## Feature Class Polygon ##
+    """
     for elem in dictListFcPolygon:
         arcpy.AddMessage("\n# Update: {0}".format(elem["featureCopy"]))
         with arcpy.da.UpdateCursor(elem["featureLayer"], ["OID@", "SHAPE@"]) as cursor:
@@ -183,21 +184,25 @@ try:
                             for rowSub in cursorSub:
                                 row[1] = rowSub[0]
                                 cursor.updateRow(row)
+    """
     ## Feature Class Line ##
     for elem in dictListFcLine:
         if elem["featureName"] != "DoanTimDuongBoClone":
             continue
         arcpy.AddMessage("\n# Update: {0}".format(elem["featureCopy"]))
+        fieldName = elem["FID_XXX"]
+        strQuery = fieldName + " IS NOT NULL"
+        arcpy.SelectLayerByAttribute_management(tempLayerSimplify, "NEW_SELECTION", strQuery)
+        arcpy.CopyFeatures_management(tempLayerSimplify, "in_memory\\TableTemp")
         with arcpy.da.UpdateCursor(elem["featureLayer"], ["OID@", "SHAPE@"]) as cursor:
             for row in cursor:
-                ### Select By Attribute ###
-                fieldName = elem["FID_XXX"]
-                strQuery = fieldName + " = " + str(row[0])
-                arcpy.SelectLayerByAttribute_management(tempLayerSimplify, "NEW_SELECTION", strQuery)
-                with arcpy.da.SearchCursor(tempLayerSimplify, ["SHAPE@"]) as cursorSub:
+                with arcpy.da.UpdateCursor("in_memory\\TableTemp", ["OID@", "SHAPE@", fieldName]) as cursorSub:
                     for rowSub in cursorSub:
-                        row[1] = rowSub[0]
-                        cursor.updateRow(row)
+                        if rowSub[2] == row[0]:
+                            row[1] = rowSub[1]
+                            cursorSub.deleteRow()
+                            cursor.updateRow(row)
+                            break
     
     # Done
     arcpy.AddMessage("\n# Done!!!")
