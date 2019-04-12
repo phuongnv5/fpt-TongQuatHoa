@@ -188,7 +188,6 @@ class SimplifyLine(object):
     def execute(self, parameters, messages):
         """The source code of the tool."""
         try:
-            """
             # Init WorkSpase #
             arcpy.env.overwriteOutput = True
             duongDanNguon = "C:\\Generalize_25_50\\50K_Process.gdb"
@@ -205,7 +204,8 @@ class SimplifyLine(object):
                     if elemSub.featureType == "Simple" and elemSub.shapeType == "Polygon":
                         tempSub = {
                             "featureName": elemSub.baseName,
-                            "featureToLine": "in_memory\\" + elem.baseName + "\\" + elemSub.baseName + "_FeatureToLine"
+                            "featureToLine": "in_memory\\" + elem.baseName + "\\" + elemSub.baseName + "_FeatureToLine",
+                            "FID_XXX": "FID_" + elemSub.baseName
                         }
                         temp["listFeature"].append(tempSub)
                 listDictPolygon.append(temp)
@@ -230,6 +230,23 @@ class SimplifyLine(object):
                 listDictPolyline.append(temp)
 
             # Add Field, Update Field FID_XXX #
+            ## Poligon ##
+            for elem in listDictPolygon:
+                if len(elem["listFeature"]) == 0:
+                    continue
+                ## Add Field ##
+                for elemSub in elem["listFeature"]:
+                    inPathAddField = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
+                    arcpy.AddField_management(inPathAddField, elemSub["FID_XXX"], "LONG")
+                ## Update Field ##
+                for elemSub in elem["listFeature"]:
+                    inPathAddField = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
+                    with arcpy.da.UpdateCursor(inPathAddField, ["OID@", elemSub["FID_XXX"]]) as cursor:
+                        for row in cursor:
+                            row[1] = row[0]
+                            cursor.updateRow(row)
+
+            ## Polyline ##
             for elem in listDictPolyline:
                 if len(elem["listFeature"]) == 0:
                     continue
@@ -245,9 +262,11 @@ class SimplifyLine(object):
                             row[1] = row[0]
                             cursor.updateRow(row)
 
+
             # Merge Feature Line #
-            arcpy.AddMessage("\n# Merge Feature Class Polygon...")
+            arcpy.AddMessage("\n# Merge tat ca cac Polygon...")
             ## Create List Input Feature Line ##
+            enableFieldsPolygon = []
             inputsMerge = []
             fieldMappings = arcpy.FieldMappings()
             for elem in listDictPolygon:
@@ -257,18 +276,25 @@ class SimplifyLine(object):
                     inPathFeatureToLine = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
                     fieldMappings.addTable(inPathFeatureToLine)
                     inputsMerge.append(inPathFeatureToLine)
+                    enableFieldsPolygon.append(elemSub["FID_XXX"])
             for field in fieldMappings.fields:
-                if field.name not in ["maNhanDang"]:
+                if field.name not in enableFieldsPolygon:
                     fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
             arcpy.Merge_management(inputsMerge, os.path.join(duongDanNguon, "MergePolygon"), fieldMappings)
 
-            # Polygon To Line #
-            arcpy.AddMessage("\n# Polygon To Line...")
-            arcpy.PolygonToLine_management(os.path.join(duongDanNguon, "MergePolygon"), os.path.join(duongDanNguon, "MergePolygonToLine"))
+            # Feature To Line #
+            arcpy.AddMessage("\n# Chuyen tat ca cac Polygon da duoc Merge thanh Line...")
+            arcpy.FeatureToLine_management(os.path.join(duongDanNguon, "MergePolygon"), os.path.join(duongDanNguon, "MergePolygonToLine"))
             
-            # Merge Feature Line #
-            arcpy.AddMessage("\n# Merge Feature Class Line...")
-            enableFields = []
+            # Unsplit Line #
+            arcpy.AddMessage("\n# Unsplit Line...")
+            arcpy.UnsplitLine_management(os.path.join(duongDanNguon, "MergePolygonToLine"),
+                                        os.path.join(duongDanNguon, "MergePolygonToLineUnSplitLine"),
+                                        enableFieldsPolygon)
+
+            # Merge All Line #
+            arcpy.AddMessage("\n# Merge tat ca cac PolyLine va tat ca cac Polygon (da duoc chuyen thanh Line o buoc truoc)")
+            enableFieldsPolyline = []
             inputsMerge = []
             fieldMappings = arcpy.FieldMappings()
             for elem in listDictPolyline:
@@ -278,19 +304,30 @@ class SimplifyLine(object):
                     inPathFeatureToLine = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
                     fieldMappings.addTable(inPathFeatureToLine)
                     inputsMerge.append(inPathFeatureToLine)
-                    enableFields.append(elemSub["FID_XXX"])
+                    enableFieldsPolyline.append(elemSub["FID_XXX"])
             inputsMerge.append(os.path.join(duongDanNguon, "MergePolygonToLine"))
             fieldMappings.addTable(os.path.join(duongDanNguon, "MergePolygonToLine"))
+
+            enableFields = enableFieldsPolygon + enableFieldsPolyline
 
             for field in fieldMappings.fields:
                 if field.name not in enableFields:
                     fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
-
+            
             arcpy.Merge_management(inputsMerge, os.path.join(duongDanNguon, "MergePolygonToLine_MergerAllLine"), fieldMappings)
-                
+            
+            # Simplify Line #
+            arcpy.AddMessage("\n# Simplify Line")
+            arcpy.SimplifyLine_cartography (in_features = os.path.join(duongDanNguon, "MergePolygonToLine_MergerAllLine"), 
+                                        out_feature_class = os.path.join(duongDanNguon, "MergePolygonToLine_MergerAllLine_SimplifyLine"),
+                                        algorithm = "BEND_SIMPLIFY", 
+                                        tolerance = "50 Meters",
+                                        collapsed_point_option = "NO_KEEP",
+                                        error_checking_option = "NO_CHECK")
+            
             # Done #
             arcpy.AddMessage("\n# Done!!!")
-            """
+
         except:
             arcpy.AddMessage(arcpy.GetMessages())
         return
