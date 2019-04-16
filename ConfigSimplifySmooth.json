@@ -1,51 +1,45 @@
 [
     {
-        "ProcessType": [
+        "nameTools": "ChangeLineFollowPolygon",
+        "configTools": [
             {
-                "ToolName": "Simplify Polygon", 
-                "Tolerance": "50 Meters", 
-                "Collapsed_Point_Option": "NO_KEEP", 
-                "Algorithm": "BEND_SIMPLIFY",
-                "RunStatus": "True"
-            }, 
-            {
-                "Endpoint_Option": "FIXED_ENDPOINT", 
-                "ToolName": "Smooth Polygon", 
-                "Tolerance": "50 Meters", 
-                "Error_Option": "NO_CHECK", 
-                "Algorithm": "PAEK",
-                "RunStatus": "False"
+                "featureDataset": "ThuyHe",
+                "featureName": "DuongBoNuoc",
+                "listPolygon": [
+                    {
+                        "featureDataset": "ThuyHe",
+                        "listSimplifyPolygon": [
+                            "SongSuoiA",
+                            "BaiBoiA",
+                            "MatNuocTinh"
+                        ]
+                    }
+                ]
             }
-        ], 
-        "BarrierLayers": [
-        ],
-        "Layer": "ThuyHe\\BaiBoiA",
-        "OrderNumber": "1"
+        ]
     },
     {
-        "ProcessType": [
+        "nameTools": "SimplifyLineFollowPolygon",
+        "configTools": [
             {
-                "ToolName": "Simplify Polygon", 
-                "Tolerance": "50 Meters", 
-                "Collapsed_Point_Option": "NO_KEEP", 
-                "Algorithm": "BEND_SIMPLIFY",
-                "RunStatus": "True"
-            }, 
-            {
-                "Endpoint_Option": "FIXED_ENDPOINT", 
-                "ToolName": "Smooth Polygon", 
-                "Tolerance": "50 Meters", 
-                "Error_Option": "NO_CHECK", 
-                "Algorithm": "PAEK",
-                "RunStatus": "False"
+                "featureDataset": "GiaoThong",
+                "featureName": "DoanTimDuongBo",
+                "listPolygon": [
+                    {
+                        "featureDataset": "ThuyHe",
+                        "listSimplifyPolygon": [
+                            "SongSuoiA",
+                            "BaiBoiA",
+                            "MatNuocTinh"
+                        ]
+                    },
+                    {
+                        "featureDataset": "GiaoThong",
+                        "listSimplifyPolygon": [
+                        ]
+                    }
+                ]
             }
-        ], 
-        "BarrierLayers": [
-            {
-                "Layer": "ThuyHe\\BaiBoiA"
-            }
-        ],
-        "Layer": "ThuyHe\\SongSuoiA",
-        "OrderNumber": "2"
+        ]
     }
 ]

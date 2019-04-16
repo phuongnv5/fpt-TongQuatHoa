@@ -10,7 +10,7 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [SimplifyPolygon, SimplifyLine]
+        self.tools = [SimplifyPolygon, ChangeLineFollowPolygon]
 
 class SimplifyPolygon(object):
     def __init__(self):
@@ -157,6 +157,219 @@ class SimplifyPolygon(object):
         finally:
             arcpy.Delete_management("in_memory")
         return
+
+class ChangeLineFollowPolygon(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "2.ChangeLineFollowPolygon"
+        self.description = "Change Line Follow Polygon"
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+        params = None
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        """The source code of the tool."""
+        try:
+            simplifyPologon = {
+                "algorithm": "BEND_SIMPLIFY",
+                "tolerance": "50 Meters",
+                "error_option": "NO_CHECK",
+                "collapsed_point_option": "NO_KEEP"
+            }
+            # Load Data Config #
+            ## Location Current File ##
+            fileUrl = os.path.dirname(os.path.realpath(__file__))
+            fileName = "ConfigSimplifySmooth.json"
+            ## Load Data JSON ##
+            dataJSON = None
+            with open(os.path.join(fileUrl, fileName)) as jsonFile:  
+                dataJSON = json.load(jsonFile)
+            #arcpy.AddMessage(json.dumps(dataJSON, indent = 4))
+            ## Load Data Config Tools ##
+            dataConfigTools = dataJSON[0]
+            #arcpy.AddMessage(json.dumps(dataConfigTools, indent = 4))
+
+            # Init WorkSpase #
+            arcpy.env.overwriteOutput = True
+            duongDanNguon = "C:\\Generalize_25_50\\50K_Process.gdb"
+            duongDanDich = "C:\\Generalize_25_50\\50K_Final.gdb"
+            defaultGDB = "C:\\Users\\vuong\\Documents\\ArcGIS\\Default.gdb"
+
+            # Run #
+            for elem in dataConfigTools["configTools"]:
+                arcpy.AddMessage("\n# Xu ly: {}\\{} ...".format(elem["featureDataset"], elem["featureName"]))
+                ## Merge Polygon (in = All Polygon in listPolygon, out = "in_memory\\OutMergePolygonTemp") ##
+                in_merge = []
+                out_merge = "in_memory\\OutMergePolygonTemp"
+                fieldMappings = arcpy.FieldMappings()
+                ### Init in_merge ###
+                for elemSub in elem["listPolygon"]:
+                    urlFeatureDataSet = os.path.join(duongDanNguon, elemSub["featureDataset"])
+                    for elemSubSub in elemSub["listSimplifyPolygon"]:
+                        urlFeatureClass = os.path.join(urlFeatureDataSet, elemSubSub)
+                        in_merge.append(urlFeatureClass)
+                        fieldMappings.addTable(urlFeatureClass)
+                for field in fieldMappings.fields:
+                    if field.name != "":
+                        fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
+                ### Run Tool Merge ##
+                arcpy.AddMessage("\n\t# Merge Polygon: in_merge = {} ...".format(in_merge))
+                arcpy.Merge_management(in_merge, out_merge, fieldMappings)
+
+                ## Simplify Polygon (in = "in_memory\\OutMergePolygonTemp", out = "in_memory\\OutSimplifyTemp") ##
+                arcpy.AddMessage("\n\t# Simplify Polygon: in_features = {} ...".format(out_merge))
+                out_simplify = "in_memory\\OutSimplifyTemp"
+                arcpy.SimplifyPolygon_cartography(in_features = out_merge,
+                                                out_feature_class = out_simplify,
+                                                algorithm = simplifyPologon["algorithm"],
+                                                tolerance = simplifyPologon["tolerance"],
+                                                error_option = simplifyPologon["error_option"],
+                                                collapsed_point_option = simplifyPologon["collapsed_point_option"])
+                
+                ## Feature To Line (in = "in_memory\\OutSimplifyTemp", out = "in_memory\\OutFeatureToLineTemp") ##
+                arcpy.AddMessage("\n\t# Feature To Line: in_features = {} ...".format(out_simplify))
+                out_featuretoline = "in_memory\\OutFeatureToLineTemp"
+                arcpy.FeatureToLine_management(in_features = out_simplify,
+                                            out_feature_class = out_featuretoline)
+
+                ## Feature Vertices To Point (in = featureName, out = "in_memory\\OutFeatureVerticesToPointTemp") ##
+                arcpy.AddMessage("\n\t# Feature Vertices To Point: in_features = {}\\{} ...".format(elem["featureDataset"], elem["featureName"]))
+                in_featureverticestopoint = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elem["featureName"])
+                out_featureverticestopoint = "in_memory\\OutFeatureVerticesToPointTemp"
+                arcpy.FeatureVerticesToPoints_management(in_features = in_featureverticestopoint,
+                                                        out_feature_class = out_featureverticestopoint,
+                                                        point_location = "ALL")
+                ## Make Feature Layer ##
+                arcpy.AddMessage("\n\t# Make Feature Layer: {}, {} ...".format(out_featuretoline, out_featureverticestopoint))
+                layerLine = "in_memory\\LayerLine"
+                arcpy.MakeFeatureLayer_management(out_featuretoline, layerLine)
+                layerPoint = "in_memory\\LayerPoint"
+                arcpy.MakeFeatureLayer_management(out_featureverticestopoint, layerPoint)
+
+                ## Select Layer By Location () ##
+                arcpy.AddMessage("\n\t# Select Layer By Location: {}, {} ...".format(layerPoint, layerLine))
+                arcpy.SelectLayerByLocation_management(in_layer = layerPoint, 
+                                                        overlap_type = "INTERSECT", 
+                                                        select_features = layerLine,
+                                                        search_distance = "#",
+                                                        selection_type = "NEW_SELECTION",
+                                                        invert_spatial_relationship = "INVERT")
+                ## Copy Features Class ##
+                arcpy.AddMessage("\n\t# Copy Features Class: {}".format(layerPoint))
+                #out_featurePointCopy = "in_memory\\FeaturePointCopy"
+                out_featurePointCopy = os.path.join(defaultGDB, "DemoPoint")
+                arcpy.CopyFeatures_management(in_features = layerPoint, out_feature_class = out_featurePointCopy)
+                
+                """
+                out_featurePointCopyLayer = "in_memory\\FeaturePointCopyLayer"
+                arcpy.MakeFeatureLayer_management(out_featurePointCopy, out_featurePointCopyLayer)
+                ## Remove Point ##
+                ### Maker Feature Layer Line ###
+                arcpy.AddMessage("\n\t# Make Feature Layer: {}, {} ...".format(elem["featureDataset"], elem["featureName"]))
+                layerLineRemove = "in_memory\\LayerLineRemove"
+                arcpy.MakeFeatureLayer_management(os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elem["featureName"]), layerLineRemove)
+                arcpy.AddMessage("\n\t# Remove Point ...")
+                with arcpy.da.UpdateCursor(layerLineRemove, ["OID@", "SHAPE@"]) as cursor:
+                    for row in cursor:
+                        #arcpy.AddMessage("\n\t\t# Line OID@: {}".format(str(row[0])))
+                        strQuery = "OBJECTID = " + str(row[0])
+                        #arcpy.AddMessage("\n\t\t# strQuery: {}".format(strQuery))
+                        arcpy.SelectLayerByAttribute_management(layerLineRemove, "NEW_SELECTION", strQuery)
+                        arcpy.SelectLayerByLocation_management(in_layer = out_featurePointCopyLayer, 
+                                                        overlap_type = "WITHIN", 
+                                                        select_features = layerLineRemove,
+                                                        search_distance = "#",
+                                                        selection_type = "NEW_SELECTION",
+                                                        invert_spatial_relationship = "NOT_INVERT")
+                        #count = int(arcpy.GetCount_management(out_featurePointCopyLayer).getOutput(0))
+                        #arcpy.AddMessage("\n\t\t# Count Point: {}".format(count))
+                """
+
+            # Done #
+            arcpy.AddMessage("\n# Done!!!")
+        except OSError as error:
+            arcpy.AddMessage(error.message)
+        except ValueError as error:
+            arcpy.AddMessage(error.message)
+        except arcpy.ExecuteError as error:
+            arcpy.AddMessage(error.message)
+        return
+
+if __name__ == "__main__":
+    try:
+
+        # Load Data Config #
+        ## Location Current File ##
+        fileUrl = os.path.dirname(os.path.realpath(__file__))
+        fileName = "ConfigSimplifySmooth.json"
+        ## Load Data JSON ##
+        dataJSON = None
+        with open(os.path.join(fileUrl, fileName)) as jsonFile:  
+            dataJSON = json.load(jsonFile)
+        #arcpy.AddMessage(json.dumps(dataJSON, indent = 4))
+        ## Load Data Config Tools ##
+        dataConfigTools = dataJSON[0]
+        #arcpy.AddMessage(json.dumps(dataConfigTools, indent = 4))
+
+        # Init WorkSpase #
+        arcpy.env.overwriteOutput = True
+        duongDanNguon = "C:\\Generalize_25_50\\50K_Process.gdb"
+        duongDanDich = "C:\\Generalize_25_50\\50K_Final.gdb"
+
+        # Run #
+        for elem in dataConfigTools["configTools"]:
+            arcpy.AddMessage("\n# Xu ly: {}\\{} ...".format(elem["featureDataset"], elem["featureName"]))
+            ## Merge Polygon (in = All Polygon in listPolygon, out = "in_memory\\OutMergePolygonTemp") ##
+            in_merge = []
+            out_merge = "in_memory\\OutMergePolygonTemp"
+            fieldMappings = arcpy.FieldMappings()
+            ### Init in_merge ###
+            for elemSub in elem["listPolygon"]:
+                urlFeatureDataSet = os.path.join(duongDanNguon, elemSub["featureDataset"])
+                for elemSubSub in elemSub["listSimplifyPolygon"]:
+                    urlFeatureClass = os.path.join(urlFeatureDataSet, elemSubSub)
+                    in_merge.append(urlFeatureClass)
+                    fieldMappings.addTable(urlFeatureClass)
+            arcpy.AddMessage("Before")
+            for field in fieldMappings.fields:
+                arcpy.AddMessage(field.name)
+            for field in fieldMappings.fields:
+                if field.name != "":
+                    fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
+            arcpy.AddMessage("After")
+            for field in fieldMappings.fields:
+                arcpy.AddMessage(field.name)
+            ## Simplify Polygon (in = "in_memory\\OutMergePolygonTemp", out = "in_memory\\OutSimplifyTemp") ##
+            ## Feature To Line (in = "in_memory\\OutSimplifyTemp", out = "in_memory\\OutFeatureToLineTemp") ##
+            ## Feature Vertices To Point (in = featureName, out = "in_memory\\OutFeatureVerticesToPointTemp") ##
+            ## Select Layer By Location () ##
+
+        # Done #
+        arcpy.AddMessage("\n# Done!!!")
+    except OSError as error:
+        arcpy.AddMessage(error.message)
+    except ValueError as error:
+        arcpy.AddMessage(error.message)
+    except arcpy.ExecuteError as error:
+        arcpy.AddMessage(error.message)
 
 class SimplifyLine(object):
     def __init__(self):
