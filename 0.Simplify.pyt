@@ -520,7 +520,6 @@ class CreateFileConfig(object):
         try:
             # Init WorkSpase #
             duongDanNguon = "C:\\Generalize_25_50\\50K_Process.gdb"
-            duongDanDich = "C:\\Generalize_25_50\\50K_Final.gdb"
 
             # Create Dict Polygon #
             listDictPolygon = []
