@@ -1,25 +1,6 @@
 [
     {
-        "nameTools": "ChangeLineFollowPolygon",
-        "configTools": [
-            {
-                "featureDataset": "ThuyHe",
-                "featureName": "DuongMepNuoc",
-                "listPolygon": [
-                    {
-                        "featureDataset": "ThuyHe",
-                        "listSimplifyPolygon": [
-                            "SongSuoiA",
-                            "BaiBoiA",
-                            "MatNuocTinh"
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "nameTools": "SimplifyLineFollowPolygon",
+        "nameTools": "SimplifyLine",
         "configTools": [
             {
                 "featureDataset": "GiaoThong",
@@ -28,14 +9,9 @@
                     {
                         "featureDataset": "ThuyHe",
                         "listSimplifyPolygon": [
-                            "SongSuoiA",
                             "BaiBoiA",
+                            "SongSuoiA",
                             "MatNuocTinh"
-                        ]
-                    },
-                    {
-                        "featureDataset": "GiaoThong",
-                        "listSimplifyPolygon": [
                         ]
                     }
                 ]

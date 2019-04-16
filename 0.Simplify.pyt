@@ -10,7 +10,7 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [SimplifyPolygon, ChangeLineFollowPolygon, CreateFileConfig]
+        self.tools = [SimplifyPolygon, SimplifyLine, CreateFileConfig]
 
 class SimplifyPolygon(object):
     def __init__(self):
@@ -347,139 +347,83 @@ class SimplifyLine(object):
             arcpy.env.overwriteOutput = True
             duongDanNguon = "C:\\Generalize_25_50\\50K_Process.gdb"
             duongDanDich = "C:\\Generalize_25_50\\50K_Final.gdb"
-
-            # Create Dict Polygon #
-            listDictPolygon = []
-            for elem in arcpy.Describe(duongDanNguon).children:
-                temp = {
-                    "featureDataset": elem.baseName,
-                    "listFeature": []
-                }
-                for elemSub in arcpy.Describe(elem.catalogPath).children:
-                    if elemSub.featureType == "Simple" and elemSub.shapeType == "Polygon":
-                        tempSub = {
-                            "featureName": elemSub.baseName,
-                            "featureToLine": "in_memory\\" + elem.baseName + "\\" + elemSub.baseName + "_FeatureToLine",
-                            "FID_XXX": "FID_" + elemSub.baseName
-                        }
-                        temp["listFeature"].append(tempSub)
-                listDictPolygon.append(temp)
+            defaultGDB = "C:\\Users\\vuong\\Documents\\ArcGIS\\Default.gdb"
             
-            # Create Dict Polyline #
-            listDictPolyline = []
-            for elem in arcpy.Describe(duongDanNguon).children:
-                temp = {
-                    "featureDataset": elem.baseName,
-                    "listFeature": []
-                }
-                for elemSub in arcpy.Describe(elem.catalogPath).children:
-                    if elemSub.featureType == "Simple" and elemSub.shapeType == "Polyline":
-                        tempSub = {
-                            "featureName": elemSub.baseName,
-                            "featureLayer": "in_memory\\" + elemSub.baseName + "_Layer",
-                            "featureCopy": "in_memory\\" + elemSub.baseName + "_Copy",
-                            "featureCopyLayer": "in_memory\\" + elemSub.baseName + "_Copy_Layer",
-                            "FID_XXX": "FID_" + elemSub.baseName
-                        }
-                        temp["listFeature"].append(tempSub)
-                listDictPolyline.append(temp)
+            # Load Data Config #
+            ## Location Current File ##
+            fileUrl = os.path.dirname(os.path.realpath(__file__))
+            fileName = "ConfigSimplifySmooth.json"
+            ## Load Data JSON ##
+            dataJSON = None
+            with open(os.path.join(fileUrl, fileName)) as jsonFile:  
+                dataJSON = json.load(jsonFile)
+            ## Load Data Config Tools ##
+            dataConfigTools = dataJSON[0]
+            
+            # Run #
+            for elem in dataConfigTools["configTools"]:
+                ## Clone OID for FeatureCLass Line ##
+                ### Add Field ###
+                inPathFC = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elem["featureName"])
+                arcpy.AddField_management(inPathFC, "OID_Clone", "LONG")
+                ### Update ###
+                with arcpy.da.UpdateCursor(inPathFC, ["OID@", "OID_Clone"]) as cursor:
+                    for row in cursor:
+                        row[1] = row[0]
+                        cursor.updateRow(row)
 
-            # Add Field, Update Field FID_XXX #
-            ## Poligon ##
-            for elem in listDictPolygon:
-                if len(elem["listFeature"]) == 0:
+                ## Create Feature Class Point Remove ##
+                ### ###
+                in_mergeOne = []
+                out_mergeOne = "in_memory\\out_mergeOne"
+                if len(elem["listPolygon"]) == 0:
                     continue
-                ## Add Field ##
-                for elemSub in elem["listFeature"]:
-                    inPathAddField = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
-                    arcpy.AddField_management(inPathAddField, elemSub["FID_XXX"], "LONG")
-                ## Update Field ##
-                for elemSub in elem["listFeature"]:
-                    inPathAddField = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
-                    with arcpy.da.UpdateCursor(inPathAddField, ["OID@", elemSub["FID_XXX"]]) as cursor:
-                        for row in cursor:
-                            row[1] = row[0]
-                            cursor.updateRow(row)
-
-            ## Polyline ##
-            for elem in listDictPolyline:
-                if len(elem["listFeature"]) == 0:
+                for elemSub in elem["listPolygon"]:
+                    if len(elemSub["listSimplifyPolygon"]) == 0:
+                        continue
+                    for elemSubSub in elemSub["listSimplifyPolygon"]: 
+                        in_mergeOne.append(os.path.join(os.path.join(duongDanNguon, elemSub["featureDataset"]), elemSubSub))
+                arcpy.Merge_management(in_mergeOne, out_mergeOne)
+                ### ###
+                in_mergeTwo = []
+                out_mergeTwo = "in_memory\\out_mergeTwo"
+                if len(elem["listPolygon"]) == 0:
                     continue
-                ## Add Field ##
-                for elemSub in elem["listFeature"]:
-                    inPathAddField = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
-                    arcpy.AddField_management(inPathAddField, elemSub["FID_XXX"], "LONG")
-                ## Update Field ##
-                for elemSub in elem["listFeature"]:
-                    inPathAddField = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
-                    with arcpy.da.UpdateCursor(inPathAddField, ["OID@", elemSub["FID_XXX"]]) as cursor:
-                        for row in cursor:
-                            row[1] = row[0]
-                            cursor.updateRow(row)
+                for elemSub in elem["listPolygon"]:
+                    if len(elemSub["listSimplifyPolygon"]) == 0:
+                        continue
+                    for elemSubSub in elemSub["listSimplifyPolygon"]: 
+                        in_mergeTwo.append(os.path.join(os.path.join(duongDanDich, elemSub["featureDataset"]), elemSubSub))
+                arcpy.Merge_management(in_mergeTwo, out_mergeTwo)
+                ## Feature Vertices To Point ##
+                ### ###
+                out_FeatureVerticesToPointsOne = "in_memory\\out_FeatureVerticesToPointsOne"
+                arcpy.FeatureVerticesToPoints_management(in_features = out_mergeOne,
+                                                        out_feature_class = out_FeatureVerticesToPointsOne,
+                                                        point_location = "ALL")
+                ### ###
+                out_FeatureVerticesToPointsTwo = "in_memory\\out_FeatureVerticesToPointsTwo"
+                arcpy.FeatureVerticesToPoints_management(in_features = out_mergeTwo,
+                                                        out_feature_class = out_FeatureVerticesToPointsTwo,
+                                                        point_location = "ALL")
+                ## Erase ##
+                out_Erase = "in_memory\\outErase"
+                arcpy.Erase_analysis(out_FeatureVerticesToPointsOne, out_FeatureVerticesToPointsTwo, out_Erase, '#')
 
-
-            # Merge Feature Line #
-            arcpy.AddMessage("\n# Merge tat ca cac Polygon...")
-            ## Create List Input Feature Line ##
-            enableFieldsPolygon = []
-            inputsMerge = []
-            fieldMappings = arcpy.FieldMappings()
-            for elem in listDictPolygon:
-                if len(elem["listFeature"]) == 0:
-                    continue
-                for elemSub in elem["listFeature"]:
-                    inPathFeatureToLine = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
-                    fieldMappings.addTable(inPathFeatureToLine)
-                    inputsMerge.append(inPathFeatureToLine)
-                    enableFieldsPolygon.append(elemSub["FID_XXX"])
-            for field in fieldMappings.fields:
-                if field.name not in enableFieldsPolygon:
-                    fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
-            arcpy.Merge_management(inputsMerge, os.path.join(duongDanNguon, "MergePolygon"), fieldMappings)
-
-            # Feature To Line #
-            arcpy.AddMessage("\n# Chuyen tat ca cac Polygon da duoc Merge thanh Line...")
-            arcpy.FeatureToLine_management(os.path.join(duongDanNguon, "MergePolygon"), os.path.join(duongDanNguon, "MergePolygonToLine"))
-            
-            # Unsplit Line #
-            arcpy.AddMessage("\n# Unsplit Line...")
-            arcpy.UnsplitLine_management(os.path.join(duongDanNguon, "MergePolygonToLine"),
-                                        os.path.join(duongDanNguon, "MergePolygonToLineUnSplitLine"),
-                                        enableFieldsPolygon)
-
-            # Merge All Line #
-            arcpy.AddMessage("\n# Merge tat ca cac PolyLine va tat ca cac Polygon (da duoc chuyen thanh Line o buoc truoc)")
-            enableFieldsPolyline = []
-            inputsMerge = []
-            fieldMappings = arcpy.FieldMappings()
-            for elem in listDictPolyline:
-                if len(elem["listFeature"]) == 0:
-                    continue
-                for elemSub in elem["listFeature"]:
-                    inPathFeatureToLine = os.path.join(os.path.join(duongDanNguon, elem["featureDataset"]), elemSub["featureName"])
-                    fieldMappings.addTable(inPathFeatureToLine)
-                    inputsMerge.append(inPathFeatureToLine)
-                    enableFieldsPolyline.append(elemSub["FID_XXX"])
-            inputsMerge.append(os.path.join(duongDanNguon, "MergePolygonToLine"))
-            fieldMappings.addTable(os.path.join(duongDanNguon, "MergePolygonToLine"))
-
-            enableFields = enableFieldsPolygon + enableFieldsPolyline
-
-            for field in fieldMappings.fields:
-                if field.name not in enableFields:
-                    fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
-            
-            arcpy.Merge_management(inputsMerge, os.path.join(duongDanNguon, "MergePolygonToLine_MergerAllLine"), fieldMappings)
-            
-            # Simplify Line #
-            arcpy.AddMessage("\n# Simplify Line")
-            arcpy.SimplifyLine_cartography (in_features = os.path.join(duongDanNguon, "MergePolygonToLine_MergerAllLine"), 
-                                        out_feature_class = os.path.join(duongDanNguon, "MergePolygonToLine_MergerAllLine_SimplifyLine"),
-                                        algorithm = "BEND_SIMPLIFY", 
-                                        tolerance = "50 Meters",
-                                        collapsed_point_option = "NO_KEEP",
-                                        error_checking_option = "NO_CHECK")
-            
+                ## Make Layer ##
+                out_CopyFeatures = "in_memory\\out_CopyFeatures"
+                arcpy.CopyFeatures_management(inPathFC, out_CopyFeatures)
+                out_MakerFeatureLayerOne = "in_memory\\out_MakerFeatureLayerOne"
+                arcpy.MakeFeatureLayer_management(out_CopyFeatures, out_MakerFeatureLayerOne)
+                out_MakerFeatureLayerTwo = "in_memory\\out_MakerFeatureLayerTwo"
+                arcpy.MakeFeatureLayer_management(out_Erase, out_MakerFeatureLayerTwo)
+                arcpy.SelectLayerByLocation_management(in_layer = out_MakerFeatureLayerTwo, 
+                                                    overlap_type = "WITHIN", 
+                                                    select_features = out_MakerFeatureLayerOne,
+                                                    search_distance = "#",
+                                                    selection_type = "NEW_SELECTION",
+                                                    invert_spatial_relationship = "NOT_INVERT")
+                arcpy.CopyFeatures_management(out_MakerFeatureLayerTwo, os.path.join(defaultGDB, "DemoPoint"))
             # Done #
             arcpy.AddMessage("\n# Done!!!")
 
@@ -529,6 +473,15 @@ class CreateFileConfig(object):
                         temp = {
                             "LayerType": "Polygon",
                             "ToolName": "Simplify Polygon",
+                            "RunStatus": "True",
+                            "DatasetName": elem.baseName,
+                            "LayerName": elemSub.baseName
+                        }
+                        listDictPolygon.append(temp)
+                    elif elemSub.featureType == "Simple" and elemSub.shapeType == "Polyline":
+                        temp = {
+                            "LayerType": "Polyline",
+                            "ToolName": "Simplify Polyline",
                             "RunStatus": "True",
                             "DatasetName": elem.baseName,
                             "LayerName": elemSub.baseName

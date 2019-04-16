@@ -1,10 +1,24 @@
 [
     {
         "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "HamDiBoL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "CongGiaoThongA", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongCapTreo", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "GiaoThong", 
@@ -15,10 +29,59 @@
     }, 
     {
         "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "BenBaiL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "CauDiBoL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "CauGiaoThongA", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "CauGiaoThongL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "CongGiaoThongL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DoanDuongSat", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DoanTimDuongBo", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DoanVuotSongSuoiL", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "GiaoThong", 
@@ -29,10 +92,24 @@
     }, 
     {
         "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongNoiBoL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "HamGiaoThongA", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "HamGiaoThongL", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "GiaoThong", 
@@ -42,11 +119,46 @@
         "LayerType": "Polygon"
     }, 
     {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "RanhGioiDuongBo", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "TaluyGiaoThong", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "NhaL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongDayTaiDien", 
+        "LayerType": "Polyline"
+    }, 
+    {
         "DatasetName": "DanCuCoSoHaTang", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "DiemDanCuA", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongOngDan", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "DanCuCoSoHaTang", 
@@ -61,6 +173,13 @@
         "RunStatus": "True", 
         "LayerName": "NhaA", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "RanhGioiTuongRao", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "DanCuCoSoHaTang", 
@@ -92,10 +211,31 @@
     }, 
     {
         "DatasetName": "DiaHinh", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "NetChiDoc", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "DiaHinh", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "DiaHinhDacBietA", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "DiaHinh", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DiaHinhDacBietL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "DiaHinh", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongBinhDo", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "BienGioiDiaGioi", 
@@ -103,6 +243,27 @@
         "RunStatus": "True", 
         "LayerName": "DiaPhan", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "BienGioiDiaGioi", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongBienGioi", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "BienGioiDiaGioi", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongDiaGioi", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "BienGioiDiaGioi", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongCoSoLanhHai", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "BienGioiDiaGioi", 
@@ -175,6 +336,20 @@
         "LayerType": "Polygon"
     }, 
     {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "gachtinhchatcau", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "RanhGioiBai", 
+        "LayerType": "Polyline"
+    }, 
+    {
         "DatasetName": "ThuyHe", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
@@ -204,6 +379,27 @@
     }, 
     {
         "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "BienDoiDongChayL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "BoKeBoCap", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "CongThuyLoiL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "DaoA", 
@@ -218,10 +414,31 @@
     }, 
     {
         "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DapL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "DeA", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DeL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongMepNuoc", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "ThuyHe", 
@@ -232,10 +449,24 @@
     }, 
     {
         "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "KenhMuongL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "MangDanNuocA", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "MangDanNuocL", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "ThuyHe", 
@@ -260,10 +491,45 @@
     }, 
     {
         "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "SongSuoiL", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "TaluyCongTrinhThuyLoi", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "RanhGioiNuocMatQuyUoc", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
         "ToolName": "Simplify Polygon", 
         "RunStatus": "True", 
         "LayerName": "DamLay", 
         "LayerType": "Polygon"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "DuongBoNuoc", 
+        "LayerType": "Polyline"
+    }, 
+    {
+        "DatasetName": "PhuBeMat", 
+        "ToolName": "Simplify Polyline", 
+        "RunStatus": "True", 
+        "LayerName": "RanhGioiPhuBeMat", 
+        "LayerType": "Polyline"
     }, 
     {
         "DatasetName": "PhuBeMat", 
