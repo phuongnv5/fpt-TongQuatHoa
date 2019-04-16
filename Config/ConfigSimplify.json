@@ -1,7 +1,8 @@
 [
     {
         "LayerType": "Polygon",
-        "LayerPath": "ThuyHe\\BaiBoiA",
+        "DatasetName": "ThuyHe",
+        "LayerName": "BaiBoiA",
         "RunStatus": "True",
         "ToolName": "Simplify Polygon", 
         "Tolerance": "50 Meters", 
