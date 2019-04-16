@@ -1,12 +1,392 @@
 [
     {
-        "LayerType": "Polygon",
-        "DatasetName": "ThuyHe",
-        "LayerName": "BaiBoiA",
-        "RunStatus": "True",
+        "DatasetName": "GiaoThong", 
         "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "CongGiaoThongA", 
         "Tolerance": "50 Meters", 
-        "Collapsed_Point_Option": "NO_KEEP", 
-        "Algorithm": "BEND_SIMPLIFY"
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "BenBaiA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "CauGiaoThongA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "DuongNoiBoA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "HamGiaoThongA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "GiaoThong", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatDuongBo", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "DiemDanCuA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "KhuChucNangA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "NhaA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "TramDienA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "TramQuanTracA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "CongTrinhKienTrucDacBietA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "DanCuCoSoHaTang", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "TramThuPhatSongA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "DiaHinh", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "DiaHinhDacBietA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "BienGioiDiaGioi", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "DiaPhan", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "BienGioiDiaGioi", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "VungBien", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "QuanSu", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "QuanSuA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNaDen", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNaLo", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNaNau", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNaCay", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNaDiaGioi", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNaKhung", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNaDayDien", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "MatNa", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNa_DiemDoCao", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "BaiCanBaiNgamA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "BaiBoiA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "BienA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "BienDoiDongChayA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "DaoA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "DapA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "DeA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "KenhMuongA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MangDanNuocA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatBoKenhMuongA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "MatNuocTinh", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "SongSuoiA", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "ThuyHe", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "DamLay", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
+    }, 
+    {
+        "DatasetName": "PhuBeMat", 
+        "ToolName": "Simplify Polygon", 
+        "Algorithm": "BEND_SIMPLIFY", 
+        "LayerType": "Polygon", 
+        "RunStatus": "True", 
+        "LayerName": "PhuBeMat", 
+        "Tolerance": "50 Meters", 
+        "Collapsed_Point_Option": "NO_KEEP"
     }
 ]

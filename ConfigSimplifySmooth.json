@@ -4,7 +4,7 @@
         "configTools": [
             {
                 "featureDataset": "ThuyHe",
-                "featureName": "DuongBoNuoc",
+                "featureName": "DuongMepNuoc",
                 "listPolygon": [
                     {
                         "featureDataset": "ThuyHe",

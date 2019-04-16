@@ -10,7 +10,7 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [SimplifyPolygon, ChangeLineFollowPolygon]
+        self.tools = [SimplifyPolygon, ChangeLineFollowPolygon, CreateFileConfig]
 
 class SimplifyPolygon(object):
     def __init__(self):
@@ -313,64 +313,6 @@ class ChangeLineFollowPolygon(object):
             arcpy.AddMessage(error.message)
         return
 
-if __name__ == "__main__":
-    try:
-
-        # Load Data Config #
-        ## Location Current File ##
-        fileUrl = os.path.dirname(os.path.realpath(__file__))
-        fileName = "ConfigSimplifySmooth.json"
-        ## Load Data JSON ##
-        dataJSON = None
-        with open(os.path.join(fileUrl, fileName)) as jsonFile:  
-            dataJSON = json.load(jsonFile)
-        #arcpy.AddMessage(json.dumps(dataJSON, indent = 4))
-        ## Load Data Config Tools ##
-        dataConfigTools = dataJSON[0]
-        #arcpy.AddMessage(json.dumps(dataConfigTools, indent = 4))
-
-        # Init WorkSpase #
-        arcpy.env.overwriteOutput = True
-        duongDanNguon = "C:\\Generalize_25_50\\50K_Process.gdb"
-        duongDanDich = "C:\\Generalize_25_50\\50K_Final.gdb"
-
-        # Run #
-        for elem in dataConfigTools["configTools"]:
-            arcpy.AddMessage("\n# Xu ly: {}\\{} ...".format(elem["featureDataset"], elem["featureName"]))
-            ## Merge Polygon (in = All Polygon in listPolygon, out = "in_memory\\OutMergePolygonTemp") ##
-            in_merge = []
-            out_merge = "in_memory\\OutMergePolygonTemp"
-            fieldMappings = arcpy.FieldMappings()
-            ### Init in_merge ###
-            for elemSub in elem["listPolygon"]:
-                urlFeatureDataSet = os.path.join(duongDanNguon, elemSub["featureDataset"])
-                for elemSubSub in elemSub["listSimplifyPolygon"]:
-                    urlFeatureClass = os.path.join(urlFeatureDataSet, elemSubSub)
-                    in_merge.append(urlFeatureClass)
-                    fieldMappings.addTable(urlFeatureClass)
-            arcpy.AddMessage("Before")
-            for field in fieldMappings.fields:
-                arcpy.AddMessage(field.name)
-            for field in fieldMappings.fields:
-                if field.name != "":
-                    fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
-            arcpy.AddMessage("After")
-            for field in fieldMappings.fields:
-                arcpy.AddMessage(field.name)
-            ## Simplify Polygon (in = "in_memory\\OutMergePolygonTemp", out = "in_memory\\OutSimplifyTemp") ##
-            ## Feature To Line (in = "in_memory\\OutSimplifyTemp", out = "in_memory\\OutFeatureToLineTemp") ##
-            ## Feature Vertices To Point (in = featureName, out = "in_memory\\OutFeatureVerticesToPointTemp") ##
-            ## Select Layer By Location () ##
-
-        # Done #
-        arcpy.AddMessage("\n# Done!!!")
-    except OSError as error:
-        arcpy.AddMessage(error.message)
-    except ValueError as error:
-        arcpy.AddMessage(error.message)
-    except arcpy.ExecuteError as error:
-        arcpy.AddMessage(error.message)
-
 class SimplifyLine(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
@@ -541,6 +483,72 @@ class SimplifyLine(object):
             # Done #
             arcpy.AddMessage("\n# Done!!!")
 
+        except:
+            arcpy.AddMessage(arcpy.GetMessages())
+        return
+
+#============== Create File Config.json ==============#
+class CreateFileConfig(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "3.Create File Config"
+        self.description = "Create File Config"
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+        params = None
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        """The source code of the tool."""
+        try:
+            # Init WorkSpase #
+            duongDanNguon = "C:\\Generalize_25_50\\50K_Process.gdb"
+            duongDanDich = "C:\\Generalize_25_50\\50K_Final.gdb"
+
+            # Create Dict Polygon #
+            listDictPolygon = []
+            for elem in arcpy.Describe(duongDanNguon).children:
+                for elemSub in arcpy.Describe(elem.catalogPath).children:
+                    if elemSub.featureType == "Simple" and elemSub.shapeType == "Polygon":
+                        temp = {
+                            "LayerType": "Polygon",
+                            "ToolName": "Simplify Polygon",
+                            "Algorithm": "BEND_SIMPLIFY",
+                            "Tolerance": "50 Meters",
+                            "Collapsed_Point_Option": "NO_KEEP",
+                            "RunStatus": "True",
+                            "DatasetName": elem.baseName,
+                            "LayerName": elemSub.baseName
+                        }
+                        listDictPolygon.append(temp)
+            
+            # Write #
+            fileFolder = os.path.join(os.path.dirname(os.path.realpath(__file__)), "Config")
+            fileName = "ConfigSimplify.json"
+            ## Load Data JSON ##
+            f = open(os.path.join(fileFolder, fileName), "w")
+            f.write(json.dumps(obj = listDictPolygon, indent = 4))
+            f.close()
+            
+            # Done #
+            arcpy.AddMessage("\n# Done!!!")
         except:
             arcpy.AddMessage(arcpy.GetMessages())
         return
