@@ -542,7 +542,6 @@ class CreateFileConfig(object):
             # Write #
             fileFolder = os.path.join(os.path.dirname(os.path.realpath(__file__)), "Config")
             fileName = "ConfigSimplify.json"
-            ## Load Data JSON ##
             f = open(os.path.join(fileFolder, fileName), "w")
             f.write(json.dumps(obj = listDictPolygon, indent = 4))
             f.close()
