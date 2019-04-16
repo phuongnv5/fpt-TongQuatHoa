@@ -529,9 +529,6 @@ class CreateFileConfig(object):
                         temp = {
                             "LayerType": "Polygon",
                             "ToolName": "Simplify Polygon",
-                            "Algorithm": "BEND_SIMPLIFY",
-                            "Tolerance": "50 Meters",
-                            "Collapsed_Point_Option": "NO_KEEP",
                             "RunStatus": "True",
                             "DatasetName": elem.baseName,
                             "LayerName": elemSub.baseName
