@@ -1,3 +1,0 @@
-
-print "Hiếu Vương Hoàng"
-
