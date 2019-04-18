@@ -9,7 +9,7 @@
     {
         "DatasetName": "GiaoThong", 
         "ToolName": "Simplify Polygon", 
-        "RunStatus": "True", 
+        "RunStatus": "False", 
         "LayerName": "CongGiaoThongA", 
         "LayerType": "Polygon"
     }, 

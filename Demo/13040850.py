@@ -1,5 +1,5 @@
 import os
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+s = "nguyen viet phuong _Buffer"
 
-print dir_path
+print s[:s.find('_Buffer')]
