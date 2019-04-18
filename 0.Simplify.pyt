@@ -472,7 +472,6 @@ class CreateFileConfig(object):
                     if elemSub.featureType == "Simple" and elemSub.shapeType == "Polygon":
                         temp = {
                             "LayerType": "Polygon",
-                            "ToolName": "Simplify Polygon",
                             "RunStatus": "True",
                             "DatasetName": elem.baseName,
                             "LayerName": elemSub.baseName
@@ -481,7 +480,6 @@ class CreateFileConfig(object):
                     elif elemSub.featureType == "Simple" and elemSub.shapeType == "Polyline":
                         temp = {
                             "LayerType": "Polyline",
-                            "ToolName": "Simplify Polyline",
                             "RunStatus": "True",
                             "DatasetName": elem.baseName,
                             "LayerName": elemSub.baseName
