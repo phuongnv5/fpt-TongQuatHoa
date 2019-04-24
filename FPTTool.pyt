@@ -10,7 +10,10 @@ import Library.FPT_DuongMepNuoc
 reload(Library.FPT_DuongMepNuoc)
 import Library.FPT_Simplify
 reload(Library.FPT_Simplify)
-
+#import classes
+from Library.FPT_DuongBoNuoc import FPT_DuongBoNuoc
+from Library.FPT_DuongMepNuoc import FPT_DuongMepNuoc
+from Library.FPT_Simplify import FPT_Simplify
 
 class Toolbox(object):
     def __init__(self):
@@ -20,7 +23,7 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [Simplify]
+        self.tools = [Simplify, DuongBoNuoc_MepNuoc]
 
 
 #---------------------------------------------------Simplify
@@ -55,13 +58,13 @@ class Simplify(object):
         """The source code of the tool."""
         try:
             arcpy.env.overwriteOutput = 1
-            #obj = FPT_Simplify("25 Meters")
-            #obj.simplify()
+            obj = FPT_Simplify("25 Meters")
+            obj.simplify()
         except:
             arcpy.AddError("Error")
             arcpy.AddMessage(arcpy.GetMessages())
         return
-'''
+
 #---------------------------------------------------Đường bờ nước - Mép nước
 class DuongBoNuoc_MepNuoc(object):
     def __init__(self):
@@ -161,4 +164,3 @@ class DuongBoNuoc_MepNuoc(object):
             arcpy.AddError("Error")
             arcpy.AddMessage(arcpy.GetMessages())
         return
-'''

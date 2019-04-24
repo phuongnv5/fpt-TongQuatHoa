@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import arcpy
 import arcpy.management as DM
 import arcpy.analysis as AN
@@ -29,3 +30,5 @@ class FPT_DuongMepNuoc:
         _duongMepNuoc_KenhMuongA = self.duong_dan_nguon + "ThuyHe/" + self.lop_duong_mep_nuoc + "_" + "KenhMuongA"
         _input_Datasets = [_duongMepNuoc_MatNuocTinh,_duongMepNuoc_KenhMuongA]
         arcpy.Append_management(_input_Datasets, _duongMepNuoc_SongSuoiA, "NO_TEST",None,None)
+if __name__=='__main__':
+    abc = 1

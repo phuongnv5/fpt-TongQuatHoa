@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
 import arcpy
 import os
 import json
+import sys
+import inspect
 
 class FPT_Simplify:
     def __init__(self, snap_distance):
@@ -12,13 +15,16 @@ class FPT_Simplify:
             arcpy.env.overwriteOutput = 1
             duongDanNguon = "C:/Generalize_25_50/50K_Process.gdb"
             duongDanDich = "C:/Generalize_25_50/50K_Final.gdb"
-            urlFile = "Config/ConfigSimplify.json"
+            urlFile = '/Config/ConfigSimplify.json'
             _algorithm = "BEND_SIMPLIFY"
             _tolerance = "50 Meters"
             _error_option = "NO_CHECK"
             _collapsed_point_option = "NO_KEEP"
             #Doc file config
-
+            s1 = inspect.getfile(inspect.currentframe())
+            s2 = os.path.dirname(s1)
+            s3 = os.path.dirname(s2)
+            urlFile = s3 + urlFile
             arcpy.AddMessage("\n# Doc file cau hinh: \"{0}\"".format(urlFile))
             if os.path.exists(urlFile):
                 fileConfig = open(urlFile)
