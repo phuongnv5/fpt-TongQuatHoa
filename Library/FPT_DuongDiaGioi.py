@@ -12,6 +12,7 @@ class FPT_DuongDiaGioi:
         try:
             arcpy.env.overwriteOutput = 1
             duongDanNguon = "C:/Generalize_25_50/50K_Process.gdb"
+            duongDanDich = "C:/Generalize_25_50/50K_Final.gdb"
             arcpy.env.workspace = duongDanNguon + "/BienGioiDiaGioi"
             DiaPhan_Name = "DiaPhan"
             DiaPhan_Lyr = "DiaPhan_Lyr"
@@ -27,6 +28,7 @@ class FPT_DuongDiaGioi:
             joint_Tinh_Path = duongDanNguon + "/BienGioiDiaGioi/DuongDiaGioi_Tinh_Join"
             DuongDiaGioi_Name = "DuongDiaGioi"
             DuongDiaGioi_Path = duongDanNguon + "/BienGioiDiaGioi/" + DuongDiaGioi_Name
+            DuongDiaGioi_Dich_Path = duongDanDich + "/BienGioiDiaGioi/" + DuongDiaGioi_Name
             arcpy.Integrate_management([[DiaPhan_Path, 1]], "1 Meters")
 
             #Xa
@@ -161,6 +163,7 @@ class FPT_DuongDiaGioi:
                 with arcpy.da.InsertCursor(DuongDiaGioi_Path, duongDiaGioiFields) as iCur:
                     for sRow in sCur:
                         iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12]])
+            arcpy.CopyFeatures_management(DuongDiaGioi_Path, DuongDiaGioi_Dich_Path)
             arcpy.AddMessage("\n# Hoan thanh!!!")
         except OSError as error:
             arcpy.AddMessage("Error" + error.message)

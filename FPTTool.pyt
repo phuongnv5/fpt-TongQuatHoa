@@ -12,11 +12,14 @@ import Library.FPT_Simplify
 reload(Library.FPT_Simplify)
 import Library.FPT_DuongDiaGioi
 reload(Library.FPT_DuongDiaGioi)
+import Library.FPT_RanhGioiPhuBeMat
+reload(Library.FPT_RanhGioiPhuBeMat)
 #import classes
 from Library.FPT_DuongBoNuoc import FPT_DuongBoNuoc
 from Library.FPT_DuongMepNuoc import FPT_DuongMepNuoc
 from Library.FPT_Simplify import FPT_Simplify
 from Library.FPT_DuongDiaGioi import FPT_DuongDiaGioi
+from Library.FPT_RanhGioiPhuBeMat import FPT_RanhGioiPhuBeMat
 
 class Toolbox(object):
     def __init__(self):
@@ -26,7 +29,7 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [Simplify, DuongBoNuoc_MepNuoc, DuongDiaGioi]
+        self.tools = [Simplify, DuongBoNuoc_MepNuoc, DuongDiaGioi, RanhGioiPhuBeMat]
 
 
 #---------------------------------------------------Simplify
@@ -196,6 +199,44 @@ class DuongDiaGioi(object):
             arcpy.env.overwriteOutput = 1
             obj = FPT_DuongDiaGioi()
             obj.CreateDuongDiaGioi()
+        except:
+            arcpy.AddError("Error")
+            arcpy.AddMessage(arcpy.GetMessages())
+        return
+###########RanhGioiPhuBeMat
+class RanhGioiPhuBeMat(object):
+    def __init__(self):
+        """Ranh Gioi Phu Be Mat"""
+        self.label = "4.Tao Ranh Gioi Phu Be Mat"
+        self.description = "Tao Ranh Gioi Phu Be Mat"
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+        params = None
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+    
+    def execute(self, parameters, messages):
+        """The source code of the tool."""
+        try:
+            arcpy.env.overwriteOutput = 1
+            obj = FPT_RanhGioiPhuBeMat()
+            obj.CreateRanhGioiPhuBeMat()
         except:
             arcpy.AddError("Error")
             arcpy.AddMessage(arcpy.GetMessages())
