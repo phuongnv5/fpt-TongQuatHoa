@@ -4,8 +4,9 @@ import arcpy.management as DM
 import arcpy.analysis as AN
 import os
 class FPT_DuongMepNuoc:
-    def __init__(self, duong_dan_nguon, lop_thuy_he, lop_bai_boi, lop_duong_mep_nuoc, loai_ranh_gioi_nuoc_mat):
+    def __init__(self, duong_dan_nguon, duong_dan_dich, lop_thuy_he, lop_bai_boi, lop_duong_mep_nuoc, loai_ranh_gioi_nuoc_mat):
         self.duong_dan_nguon = duong_dan_nguon
+        self.duong_dan_dich = duong_dan_dich
         self.lop_thuy_he = lop_thuy_he
         self.lop_bai_boi = lop_bai_boi
         self.lop_duong_mep_nuoc = lop_duong_mep_nuoc
@@ -30,5 +31,19 @@ class FPT_DuongMepNuoc:
         _duongMepNuoc_KenhMuongA = self.duong_dan_nguon + "ThuyHe/" + self.lop_duong_mep_nuoc + "_" + "KenhMuongA"
         _input_Datasets = [_duongMepNuoc_MatNuocTinh,_duongMepNuoc_KenhMuongA]
         arcpy.Append_management(_input_Datasets, _duongMepNuoc_SongSuoiA, "NO_TEST",None,None)
+
+        DuongMepNuoc_Path = self.duong_dan_nguon + "ThuyHe/DuongMepNuoc"
+        if int(arcpy.GetCount_management(DuongMepNuoc_Path).getOutput(0)) > 0:
+            arcpy.DeleteFeatures_management(DuongMepNuoc_Path)
+        duongMepNuocFields = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiRanhGioiNuocMat", "nguonDuLieu", 
+                            "maTrinhBay", "tenManh", "soPhienHieuManhBanDo"]
+        with arcpy.da.SearchCursor(_duongMepNuoc_SongSuoiA, duongMepNuocFields) as sCur:
+            with arcpy.da.InsertCursor(DuongMepNuoc_Path, duongMepNuocFields) as iCur:
+                for sRow in sCur:
+                    iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], sRow[5], sRow[6], sRow[7], sRow[8], sRow[9]])
+        arcpy.CopyFeatures_management(DuongMepNuoc_Path, self.duong_dan_dich + "ThuyHe/DuongMepNuoc")
 if __name__=='__main__':
-    abc = 1
+    arcpy.env.overwriteOutput = 1
+    obj_duong_mep_nuoc = FPT_DuongMepNuoc("C:/Generalize_25_50/50K_Process.gdb/", "C:/Generalize_25_50/50K_Final.gdb/",
+     "SongSuoiA", "BaiBoiA", "DuongMepNuoc", 6)
+    obj_duong_mep_nuoc.append_DuongMepNuoc()

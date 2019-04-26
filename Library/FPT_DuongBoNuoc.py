@@ -4,8 +4,9 @@ import arcpy.management as DM
 import arcpy.analysis as AN
 import os
 class FPT_DuongBoNuoc:
-    def __init__(self, duong_dan_nguon, lop_thuy_he, lop_bai_boi, khoang_Cach, loai_ranh_gioi_nuoc_mat):
+    def __init__(self, duong_dan_nguon, duong_dan_dich, lop_thuy_he, lop_bai_boi, khoang_Cach, loai_ranh_gioi_nuoc_mat):
         self.duong_dan_nguon = duong_dan_nguon
+        self.duong_dan_dich = duong_dan_dich
         self.lop_thuy_he = lop_thuy_he
         self.lop_bai_boi = lop_bai_boi
         self.khoang_Cach = khoang_Cach
@@ -99,5 +100,18 @@ class FPT_DuongBoNuoc:
         _kenhMuongA_DuongBoNuoc = self.duong_dan_nguon + "ThuyHe/KenhMuongA_DuongBoNuoc"
         _input_Datasets = [_matNuocTinh_DuongBoNuoc,_kenhMuongA_DuongBoNuoc]
         arcpy.Append_management(_input_Datasets, _matNuocTinh_SongSuoiA, "NO_TEST",None,None)
+
+        DuongBoNuoc_Path = self.duong_dan_nguon + "ThuyHe/DuongBoNuoc"
+        if int(arcpy.GetCount_management(DuongBoNuoc_Path).getOutput(0)) > 0:
+            arcpy.DeleteFeatures_management(DuongBoNuoc_Path)
+        
+        duongBoNuocFields = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiTrangThaiDuongBoNuoc", "loaiRanhGioiNuocMat", 
+                            "nguonDuLieu", "maTrinhBay", "tenManh", "soPhienHieuManhBanDo"]
+        with arcpy.da.SearchCursor(_matNuocTinh_SongSuoiA, duongBoNuocFields) as sCur:
+            with arcpy.da.InsertCursor(DuongBoNuoc_Path, duongBoNuocFields) as iCur:
+                for sRow in sCur:
+                    iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], sRow[5], sRow[6], sRow[7], sRow[8], sRow[9], sRow[10]])
+        arcpy.CopyFeatures_management(DuongBoNuoc_Path, self.duong_dan_dich + "ThuyHe/DuongBoNuoc")
+
 if __name__=='__main__':
     abc = 1
