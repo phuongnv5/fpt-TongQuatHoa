@@ -35,10 +35,12 @@ class FPT_RanhGioiPhuBeMat:
                 arcpy.DeleteFeatures_management(RanhGioiPhuBeMat_Path)
             ranhGioiPhuBeMatFields = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiRanhGioiPhuBeMat", "nguonDuLieu", 
                                 "maTrinhBay", "tenManh", "soPhienHieuManhBanDo"]
+            ranhGioiPhuBeMatFields2 = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiRanhGioiPhuBeMat", "nguonDuLieu", 
+                                "maTrinhBay", "tenManh", "soPhienHieuManhBanDo","RanhGioiPhuBeMat_Rep_ID"]
             with arcpy.da.SearchCursor(intersect_Path, ranhGioiPhuBeMatFields) as sCur:
-                with arcpy.da.InsertCursor(RanhGioiPhuBeMat_Path, ranhGioiPhuBeMatFields) as iCur:
+                with arcpy.da.InsertCursor(RanhGioiPhuBeMat_Path, ranhGioiPhuBeMatFields2) as iCur:
                     for sRow in sCur:
-                        iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9]])
+                        iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], 1])
             arcpy.CopyFeatures_management(RanhGioiPhuBeMat_Path, RanhGioiPhuBeMat_Dich_Path)
             arcpy.AddMessage("\n# Hoan thanh!!!")
         except OSError as error:

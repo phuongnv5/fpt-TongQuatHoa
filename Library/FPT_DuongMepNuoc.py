@@ -37,10 +37,12 @@ class FPT_DuongMepNuoc:
             arcpy.DeleteFeatures_management(DuongMepNuoc_Path)
         duongMepNuocFields = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiRanhGioiNuocMat", "nguonDuLieu", 
                             "maTrinhBay", "tenManh", "soPhienHieuManhBanDo"]
+        duongMepNuocFields2 = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiRanhGioiNuocMat", "nguonDuLieu", 
+                            "maTrinhBay", "tenManh", "soPhienHieuManhBanDo", "DuongMepNuoc_Rep_ID"]
         with arcpy.da.SearchCursor(_duongMepNuoc_SongSuoiA, duongMepNuocFields) as sCur:
-            with arcpy.da.InsertCursor(DuongMepNuoc_Path, duongMepNuocFields) as iCur:
+            with arcpy.da.InsertCursor(DuongMepNuoc_Path, duongMepNuocFields2) as iCur:
                 for sRow in sCur:
-                    iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], sRow[5], sRow[6], sRow[7], sRow[8], sRow[9]])
+                    iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], sRow[5], sRow[6], sRow[7], sRow[8], sRow[9], 1])
         arcpy.CopyFeatures_management(DuongMepNuoc_Path, self.duong_dan_dich + "ThuyHe/DuongMepNuoc")
 if __name__=='__main__':
     arcpy.env.overwriteOutput = 1

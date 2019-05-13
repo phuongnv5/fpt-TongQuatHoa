@@ -107,10 +107,12 @@ class FPT_DuongBoNuoc:
         
         duongBoNuocFields = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiTrangThaiDuongBoNuoc", "loaiRanhGioiNuocMat", 
                             "nguonDuLieu", "maTrinhBay", "tenManh", "soPhienHieuManhBanDo"]
+        duongBoNuocFields2 = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiTrangThaiDuongBoNuoc", "loaiRanhGioiNuocMat", 
+                            "nguonDuLieu", "maTrinhBay", "tenManh", "soPhienHieuManhBanDo", "DuongBoNuoc_Rep_ID"]
         with arcpy.da.SearchCursor(_matNuocTinh_SongSuoiA, duongBoNuocFields) as sCur:
-            with arcpy.da.InsertCursor(DuongBoNuoc_Path, duongBoNuocFields) as iCur:
+            with arcpy.da.InsertCursor(DuongBoNuoc_Path, duongBoNuocFields2) as iCur:
                 for sRow in sCur:
-                    iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], sRow[5], sRow[6], sRow[7], sRow[8], sRow[9], sRow[10]])
+                    iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], sRow[5], sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], 1])
         arcpy.CopyFeatures_management(DuongBoNuoc_Path, self.duong_dan_dich + "ThuyHe/DuongBoNuoc")
 
 if __name__=='__main__':

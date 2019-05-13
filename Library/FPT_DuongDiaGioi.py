@@ -151,18 +151,21 @@ class FPT_DuongDiaGioi:
                 arcpy.DeleteFeatures_management(DuongDiaGioi_Path)
             duongDiaGioiFields = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiHienTrangPhapLy", "donViHanhChinhLienKeTrai", 
                                 "donViHanhChinhLienKePhai", "chieuDai", "doiTuong", "maTrinhBay", "tenManh", "soPhienHieuManhBanDo"]
+            duongDiaGioiFields2 = ["SHAPE@", "maNhanDang", "ngayThuNhan", "ngayCapNhat", "maDoiTuong", "loaiHienTrangPhapLy", "donViHanhChinhLienKeTrai", 
+                                "donViHanhChinhLienKePhai", "chieuDai", "doiTuong", "maTrinhBay", "tenManh", "soPhienHieuManhBanDo", "DuongDiaGioi_Rep_ID", "RuleID"]
             with arcpy.da.SearchCursor(intersect_Xa_Path, duongDiaGioiFields) as sCur:
-                with arcpy.da.InsertCursor(DuongDiaGioi_Path, duongDiaGioiFields) as iCur:
+                with arcpy.da.InsertCursor(DuongDiaGioi_Path, duongDiaGioiFields2) as iCur:
                     for sRow in sCur:
-                        iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12]])
+                        iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12], 5, 1])
             with arcpy.da.SearchCursor(intersect_Huyen_Path, duongDiaGioiFields) as sCur:
-                with arcpy.da.InsertCursor(DuongDiaGioi_Path, duongDiaGioiFields) as iCur:
+                with arcpy.da.InsertCursor(DuongDiaGioi_Path, duongDiaGioiFields2) as iCur:
                     for sRow in sCur:
-                        iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12]])
+                        iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12], 3, 3])
             with arcpy.da.SearchCursor(intersect_Tinh_Path, duongDiaGioiFields) as sCur:
-                with arcpy.da.InsertCursor(DuongDiaGioi_Path, duongDiaGioiFields) as iCur:
+                with arcpy.da.InsertCursor(DuongDiaGioi_Path, duongDiaGioiFields2) as iCur:
                     for sRow in sCur:
-                        iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12]])
+                        iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12], 1, 2])
+            #arcpy.CalculateField_management(DuongDiaGioi_Path, "DuongDiaGioi_Rep_ID", 1, "PYTHON_9.3")
             arcpy.CopyFeatures_management(DuongDiaGioi_Path, DuongDiaGioi_Dich_Path)
             arcpy.AddMessage("\n# Hoan thanh!!!")
         except OSError as error:
