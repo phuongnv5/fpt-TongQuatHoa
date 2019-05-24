@@ -1,0 +1,2887 @@
+﻿[
+  {
+    "nameFeatureDataset": "GiaoThong",
+    "listFeatureClass": [
+      {
+        "nameFeatureClass": "DoanVuotSongSuoiP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DoanVuotSongSuoiP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "63-b-Bến đò PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "62-b-Bến phà PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "64-b-Bến lội phi TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "61-b-Ngầm ô tô qua được PTL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CauDiBoP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CauDiBoP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "58-1-b-Cầu vượt không theo tỷ lệ",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CongGiaoThongP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CongGiaoThongP_RepPhai",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Cống trên đường cao tốc_phải",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Cống trên đường quốc lộ_phải",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "Cống trên đường tỉnh lộ_phải",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "Cống trên đường ô tô khác_phải",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "Cống trên đường mòn_phải",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "Cống trên đường chia lô_phải",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "Cống trên phố phụ_phải",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "CongGiaoThongP_RepTrai",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Cống trên đường cao tốc_trái",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Cống trên đường quốc lộ_trái",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "Cống trên đường tỉnh lộ_trái",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "Cống trên đường ô tô khác_trái",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "Cống trên đường mòn_trái",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "Cống trên đường chia lô_trái",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "Cống trên phố phụ_trái",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BaoHieuGiaoThong",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BaoHieuGiaoThong_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "93-Đèn biển",
+                "querySQL": "loaiBaoHieuGiaoThong = 4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BenBaiA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BenBaiA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "46-a-Ga vẽ theo tỷ lệ",
+                "querySQL": "doiTuong = 4"
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "91-2-Bến tàu, chỗ bỏ neo dạng vùng",
+                "querySQL": "doiTuong = 6"
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "43-a-2-Sân bay đang hoạt động dạng vùng",
+                "querySQL": "doiTuong = 9"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BenBaiL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BenBaiL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "87-3-a-Âu thuyền ô tô qua được",
+                "querySQL": "doiTuong = 5"
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "92-1-a-Cầu tàu kiểu đê theo tỷ lệ",
+                "querySQL": "doiTuong = 10"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BenBaiP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BenBaiP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "46-c-Ga không theo tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "87-3-b-Âu thuyền ô tô qua đc (point)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "91-Bến tàu, chỗ bỏ neo",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "43-a-Sân bay hoạt động",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "92-1-b-Cầu tàu kiểu đê PTL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CauDiBoL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CauDiBoL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "58-1-a-Cầu vượt theo tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "58-1-a-Cầu vượt <75m",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CauGiaoThongL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CauGiaoThongL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "58-1-a-Cầu vượt theo tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "58-1-a-Cầu vượt <75m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "60-3-a-Cầu tầng ô tô đi trên",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "58-2-a-Cầu chui theo TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "58-2-a-Cầu chui <55m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "60-1-a-Cầu trên đg sắt hoặc đg ô tô",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "60-2-a-Cầu đg sắt và ô tô đi chung",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "60-4-a-Cầu ô tô không qua được",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "9",
+                "nameRule": "60-1-a-1-Cầu trên đg sắt hoặc đg ô tô <32,5m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "10",
+                "nameRule": "60-2-a-1-Cầu đg sắt và ô tô đi chung < 30m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "11",
+                "nameRule": "60-3-a-1-Cầu tầng ô tô đi trên <30m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "12",
+                "nameRule": "60-4-a-1-Cầu ô tô ko qua được <35m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "13",
+                "nameRule": "60-1-a-2-Cầu trên đường cao tốc",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "14",
+                "nameRule": "60-1-a-2-Cầu trên đg cao tốc <32,5m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "15",
+                "nameRule": "60-1-a-3-Cầu trên đường quốc lộ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "16",
+                "nameRule": "60-1-a-3-Cầu trên đg quốc lộ <32,5m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "17",
+                "nameRule": "60-1-a-4-Cầu trên đường tỉnh lộ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "18",
+                "nameRule": "60-1-a-4-Cầu trên đg tỉnh lộ <32,5m",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CauGiaoThongP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CauGiaoThongP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "60-1-b-Cầu trên đường sắt hoặc đg ô tô PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "60-2-b-Cầu đường sắt và ô tô đi chung PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "58-1-b-Cầu vượt không theo tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "60-3-b-Cầu tầng ô tô đi trên PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "60-4-b-Cầu ô tô không qua được PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "58-2-b-Cầu chui không theo tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "60-1-a-2-Cầu trên đường cao tốc PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "60-1-a-3-Cầu trên đg quốc lộ PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "9",
+                "nameRule": "60-1-a-4-Cầu trên đg tỉnh lộ PTL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CongGiaoThongL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CongGiaoThongL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Cống giao thông dạng line_trên đường quốc lộ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Cống giao thông dạng line_trên đường tỉnh lộ, đường ô tô, phố chính",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "Cống giao thông dạng line_trên phố phụ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "Cống giao thông dạng line_trên đường nhỏ, đường mòn",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "Cống giao thông dạng line_trên đường cao tốc",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "Deo",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "Deo_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "105-Đèo",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DoanDuongSat",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DoanDuongSat_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "44-a-Đường sắt hiện có",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "44-b-Đường sắt đang làm",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "45-Đường goòng, đường xe điện",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DoanVuotSongSuoiL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DoanVuotSongSuoiL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "63-a-Bến đò theo TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "62-a-Bến phà theo TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "64-a-Bến lội theo tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "64-a-1-Bến lội theo tỷ lệ <37,5m",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "61-a-Ngầm ô tô qua được theo TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "61-a-1-Ngầm ô tô qua được < 32,5m",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DuongNoiBoL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongNoiBoL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "55-a-Đường phố chính",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "55-b-Đường phố phụ, ngõ phố",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "52-Đường nhỏ",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "DuongNoiBoL_Nen",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "55-a-Đường phố chính_Nền",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "55-b-Đường phố phụ, ngõ phố_Nền",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "HamGiaoThongL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "HamGiaoThongL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "65-1-a-2-Hầm đường bộ theo TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "65-1-a-1-Hầm đường sắt theo TL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "HamGiaoThongP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "HamGiaoThongP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "65-1-b-2-Hầm đường bộ PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "65-1-b-1-Hầm đường sắt PTL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "MatDuongBo",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "MatDuongBo_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "47-a-1-Nền đường cao tốc, quốc lộ, tỉnh lộ theo TL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "RanhGioiDuongBo",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "RanhGioiDuongBo_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Cầu dạng vùng (bên phải)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Cầu dạng vùng (bên trái)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "47-a-2-Viền đường cao tốc, quốc lộ, tỉnh lộ, ô tô theo TL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "TaluyGiaoThong",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "TaluyGiaoThong_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "65-3-Đường đắp cao, xẻ sâu",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "41-Các loại ranh giới khác",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DoanTimDuongBo",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DoanTimDuongBo_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "47-a-3-Tim đường cao tốc TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "47-b-Đường cao tốc nửaTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "48-2-Đường QL lát nhựa nửa TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "49-Tỉnh lộ lát nhựa nửa TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "50-b-Đường ô tô khác",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "51-Đường ô tô đang làm nửa TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "52-Đường nhỏ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "53-Đường mòn",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "9",
+                "nameRule": "54-Đường chia lô",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "10",
+                "nameRule": "55-a-Đường phố chính",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "11",
+                "nameRule": "55-b-Đường phố phụ, ngõ phố",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "12",
+                "nameRule": "65-2-b-Đường ô tô khác đắp cao",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "13",
+                "nameRule": "8-2-Đường QL lát nhựa nửa TL đắp cao 2 bên",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "14",
+                "nameRule": "49-Tỉnh lộ lát nhựa nửa TL đắp cao 2 bên",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "DoanTimDuongBo_Nen",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "47-b-Đường cao tốc nửaTL_Nền",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "48-2-Đường QL lát nhựa nửa TL_Nền",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "49-Tỉnh lộ lát nhựa nửa TL_Nền",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "50-b-Đường ô tô khác_Nền",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "51-Đường ô tô đang làm nửa TL_Nền",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "54-Đường chia lô_Nền",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "55-a-Đường phố chính_Nền",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "55-b-Đường phố phụ, ngõ phố_Nền",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nameFeatureDataset": "DanCuCoSoHaTang",
+    "listFeatureClass": [
+      {
+        "nameFeatureClass": "NhaL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "NhaL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "4-b-Nhà độc lập nửa tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "6-2-a-Khu phố nửa TL chịu lửa",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DuongDayTaiDien",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongDayTaiDien_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "35-b-Dây điện trong khu dân cư",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "35-a-Dây điện ngoài khu dân cư",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CongTrinhKienTrucDacBietP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CongTrinhKienTrucP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Tượng đài, bia tưởng niệm",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Kiến trúc tháp cổ",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DuongOngDan",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongOngDan_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "36-Đường ống dẫn khí, dầu",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "NhaP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "NhaP_Rep1",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "4-c-Nhà phi tỷ lệ",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "KhuChucNangA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "KhuChucNangA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Khu chức năng_Nhà máy không có ống khói (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Khu chức năng_Lò nung (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "23-a-Ruộng muối theo TL ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "Khu chức năng_Kho nhiên liệu (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "Khu chức năng_Giàn khoan, tháp khai thác (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "Khu chức năng_Hầm mỏ đang khai thác (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "Khu chức năng_Ủy ban tỉnh (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "Khu chức năng_Ủy ban huyện (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "9",
+                "nameRule": "Khu chức năng_Ủy ban xã (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "10",
+                "nameRule": "Khu chức năng_Trường học (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "11",
+                "nameRule": "Khu chức năng_Bưu điện (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "12",
+                "nameRule": "Khu chức năng_Chợ (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "13",
+                "nameRule": "Khu chức năng_Trạm xăng dầu (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "14",
+                "nameRule": "Khu chức năng_Chùa (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "15",
+                "nameRule": "Khu chức năng_Nhà thờ (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "16",
+                "nameRule": "Khu chức năng_Cơ sở y tế (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "17",
+                "nameRule": "Khu chức năng_Tượng đài (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "18",
+                "nameRule": "28-b-Nghĩa trang, nghĩa địa_vùng",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "KhuChucNangP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "KhuChucNangP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "9-b-Nhà máy không ống khói",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "19-Lò nung",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "23-b-Ruộng muối không tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "18-b-Kho nhiên liệu không tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "20-Giàn khoan, tháp khai thác",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "21-a-Hầm mỏ đang khai thác",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "33-c-UBND tỉnh,thành phố",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "33-b-Ủy ban nhân dân huyện",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "9",
+                "nameRule": "33-a-Ủy ban nhân dân xã",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "10",
+                "nameRule": "31-Trường học",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "11",
+                "nameRule": "24-Sân vận động",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "12",
+                "nameRule": "14-Trạm bưu điện",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "13",
+                "nameRule": "32-Chợ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "14",
+                "nameRule": "17-Trạm tiếp xăng dầu",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "15",
+                "nameRule": "30-Đền, đình, chùa, miếu",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "16",
+                "nameRule": "29-Nhà thờ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "17",
+                "nameRule": "34-Trạm y tế",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "18",
+                "nameRule": "26-Tượng đài, bia tưởng niệm",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "19",
+                "nameRule": "27-Lăng tẩm, nhà mồ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "20",
+                "nameRule": "28-a-Nghĩa trang, nghĩa địa",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "21",
+                "nameRule": "25-Lô cốt",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "NhaA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "NhaA_Nen1",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "4-a-Nhà độc lập theo tỷ lệ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "6-1-a-Nền khối nhà chịu lửa theoTL",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "NhaA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "6-1-a-Viền khối nhà chịu lửa theoTL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "RanhGioiTuongRao",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "RanhGioiTuongRao_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "42-Các loại tường vây",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "ThapNuoc",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "ThapNuoc_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "10-Cột cao",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "TramDienA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "TramDienA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Trạm điện (dạng vùng)",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "TramDienP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "TramDienP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "13-Trạm biến thế điện",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "TramThuPhatSongP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "TramThuPhatSongP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Trạm thu phát sóng",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CongTrinhKienTrucDacBietA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CongTrinhKienTrucDacBietA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Khu chức năng_Tượng đài (dạng vùng)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Khu chức năng_Kiến trúc dạng tháp cổ (dạng vùng)",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "TramThuPhatSongA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "TramThuPhatSongA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Rule_1",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nameFeatureDataset": "DiaHinh",
+    "listFeatureClass": [
+      {
+        "nameFeatureClass": "NetChiDoc",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "NetChiDoc_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "99-f-1-Nét chỉ dốc (Bđộ cái)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "99-f-2-Nét chỉ dốc (Bđộ con)",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DiaHinhDacBietA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DiaHinhDacBietA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "111-Bãi đá tảng",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "110-Bãi cát, sỏi trên cạn",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "109- Núi đá (ký hiệu mới 15-10-2014)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "101-c-Gò đống dạng vùng",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "102-c-Hố Casto dạng vùng",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DiaHinhDacBietL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DiaHinhDacBietL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "101-a-Gò đất cao theo TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "102-a-Hố phễu casto theo TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "108-b-Ruộng bậc thang",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "106-1-Rãnh xói_1",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DiaHinhDacBietP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DiaHinhDacBietP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "103-Hang động",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "100-Đá độc lập",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "101-b-Gò đất cao PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "102-b-Hố, phễu, casto PTL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "101-b-2-Gò đất cao PTL (nhân tạo)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "102-b-2-Hố, phễu, casto PTL (nhân tạo)",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DiemDoCao",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DiemDoCao_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "104-a-Điểm khống chế",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "104-b-Điểm độ cao thường",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "DiemDoCao_SoDo",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Rule_2",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DuongBinhDo",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongBinhDo_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "99-a-Bình độ cơ bản",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "99-b-Bình độ cái",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "99-c-Bình độ nửa khoảng",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "99-d-Bình độ phụ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "99-e-b-Bình độ cái vẽ nháp",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "99-e-a-Bình độ con vẽ nháp",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "95-Đường bình độ sâu",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nameFeatureDataset": "CoSoDoDac",
+    "listFeatureClass": [
+      {
+        "nameFeatureClass": "DiemCoSoQuocGia",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DiemCoSoQuocGia_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "2-Điểm tọa độ Nhà nước",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "3-Điểm độ cao Nhà nước",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "1-Điểm thiên văn",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nameFeatureDataset": "BienGioiDiaGioi",
+    "listFeatureClass": [
+      {
+        "nameFeatureClass": "DuongBienGioi",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongBienGioi_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "37-a-Biên giới quốc gia xác định",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "37-b-Biên giới quốc gia chưa xác định",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DuongDiaGioi",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongDiaGioi_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "38-a-Địa giới tỉnh xác định",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "38-b-Địa giới tỉnh chưa xác định",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "39-a-Địa giới huyện xác định",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "39-b-Địa giới huyện chưa xác định",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "40-a-Địa giới xã xác định",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "40-b-Địa giới xã chưa xác định",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "DuongDiaGioi_SoDo",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Rule_1",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Địa giới tỉnh_SoDo",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "Địa giới huyện_SoDo",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "MocQuocGioi",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "MocQuocGioi_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "37-c-Mốc quốc giới",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nameFeatureDataset": "MatNa",
+    "listFeatureClass": [
+      {
+        "nameFeatureClass": "gachtinhchatcau",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongBienGioi_Rep_1_1",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "Viền đường",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nameFeatureDataset": "ThuyHe",
+    "listFeatureClass": [
+      {
+        "nameFeatureClass": "RanhGioiBai",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "RanhGioiBai_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "41-Các loại ranh giới khác",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DapP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DapP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "86-1-Đập ô tô qua được dạng điểm",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "86-2-Đập ô tô không qua được dạng điểm",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "86-3-Đập tràn dạng điểm",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BaiCanBaiNgamA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BaiCanBaiNgamA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": "loaiBai = 4"
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "68-3-b-Bãi cát ven bờ (dưới đường mép nước)",
+                "querySQL": "loaiBai = 1 AND loaiTrangThaiXuatLo = 1"
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "69-b-Bãi san hô chìm",
+                "querySQL": "loaiBai = 2 AND loaiTrangThaiXuatLo = 1"
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "69-a-Bãi san hô nổi",
+                "querySQL": "loaiBai = 2 AND (loaiTrangThaiXuatLo = 2 OR loaiTrangThaiXuatLo = 3)"
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "68-4-b-Bãi đá, sỏi ven bờ (dưới đường mép nước)",
+                "querySQL": "loaiBai = 3 AND loaiTrangThaiXuatLo = 1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "TramBom",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "TramBom_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "98-Trạm bơm",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BaiBoiA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BaiBoiA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": "loaiBaiBoi = -1 OR loaiBaiBoi = 5"
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "68-3-a-Bãi cát ven bờ (trên đường mép nước)",
+                "querySQL": "loaiBaiBoi = 1 AND (loaiTrangThaiXuatLo = 2 OR loaiTrangThaiXuatLo = 3)"
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "68-3-b-Bãi cát ven bờ (dưới đường mép nước)",
+                "querySQL": "loaiBaiBoi = 1 AND loaiTrangThaiXuatLo = 1"
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "68-1-a-Bãi bùn ven bờ (trên đường mép nước)",
+                "querySQL": "loaiBaiBoi = 2 AND (loaiTrangThaiXuatLo = 2 OR loaiTrangThaiXuatLo = 3)"
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "68-1-b-Bãi bùn ven bờ (dưới đường mép nước)",
+                "querySQL": "loaiBaiBoi = 2 AND loaiTrangThaiXuatLo = 1"
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "68-4-a-Bãi đá, sỏi ven bờ (trên đường mép nước)",
+                "querySQL": "loaiBaiBoi = 3 AND (loaiTrangThaiXuatLo = 2 OR loaiTrangThaiXuatLo = 3)"
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "68-4-b-Bãi đá, sỏi ven bờ (dưới đường mép nước)",
+                "querySQL": "loaiBaiBoi = 3 AND loaiTrangThaiXuatLo = 1"
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "68-2-a-Bãi bùn lẫn cát ven bờ (trên đường mép nước)",
+                "querySQL": "loaiBaiBoi = 4 AND (loaiTrangThaiXuatLo = 2 OR loaiTrangThaiXuatLo = 3)"
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "68-2-b-Bãi bùn lẫn cát ven bờ (dưới đường mép nước)",
+                "querySQL": "loaiBaiBoi = 4 AND loaiTrangThaiXuatLo = 1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BienA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BienA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "72-b-Nền sông suối, ao hồ",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BienDoiDongChayA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BienDoiDongChayA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "70-1-b1-Đá cụm nhô trên mặt nước",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "70-3-b1-Đá cụm lúc nhô, lúc ngầm",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "70-2-b1- Đá cụm ngầm",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BienDoiDongChayL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BienDoiDongChayL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "84-Thác",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "85-Ghềnh",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BienDoiDongChayP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BienDoiDongChayP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "70-1-a-Đá nhô lên mặt nước độc lập",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "70-3-a-Đá lúc nhô, lúc ngầm độc lập",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "70-2-a-Đá ngầm độc lập",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "84-1-Thác phi TL",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "85-1-Ghềnh phi TL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "BoKeBoCap",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BoKeBoCap_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "90-Bờ có gia cố",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CongThuyLoiL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CongThuyLoiL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "81-Cống điều tiết kênh mương dạng đường",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "CongThuyLoiP",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "CongThuyLoiP_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "81-Cống điều tiết kênh mương dạng điểm",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DapL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DapL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "86-1-Đập ô tô qua được dạng đường",
+                "querySQL": "khaNangLuuThong = 1 AND Shape_Length >= 57.5"
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "86-2-Đập ô tô không qua được dạng đường",
+                "querySQL": "(khaNangLuuThong = 2 AND Shape_Length >= 57.5) OR (khaNangLuuThong = -1 AND Shape_Length >= 57.5 AND loaiDap = 2)"
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "86-3-Đập tràn dạng đường",
+                "querySQL": "khaNangLuuThong = -1 AND Shape_Length >= 57.5 AND loaiDap = 3"
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "86-1-Đập ô tô qua được ngắn hơn 57,5m (dạng đường)",
+                "querySQL": "khaNangLuuThong = 1 AND Shape_Length < 57.5"
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "86-2-Đập ô tô không qua được ngắn hơn 57,5m (dạng đường)",
+                "querySQL": "(khaNangLuuThong = 2 AND Shape_Length < 57.5) OR (khaNangLuuThong = -1 AND Shape_Length < 57.5 AND loaiDap = 2)"
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "86-3-Đập tràn ngắn hơn 57,5m (dạng đường)",
+                "querySQL": "khaNangLuuThong = -1 AND Shape_Length < 57.5 AND loaiDap = 3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DeA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DeA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "47-a-1-Nền đường cao tốc, quốc lộ, tỉnh lộ, ô tô theo TL",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DeL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DeL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "56-Đê có ô tô đi trên",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "57-Đê ô tô k đi được",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DuongBoNuoc",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongBoNuoc_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "67-a-Đường bờ nước",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "73-a-Sông suối có nước theo mùa W=0,1",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DuongMepNuoc",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DuongMepNuoc_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "67-b-Đường mép nước",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "KenhMuongA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "KenhMuongA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "72-b-Nền sông suối, ao hồ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "77-3-a-Sông, kênh, mương đang đào(dạng vùng)",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "KenhMuongL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "KenhMuongL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "76-1-Kênh mương (0,2mm)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "76-2-Kênh mương (0,4mm)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "77-1-Sông, kênh đang đào(0.2mm)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "77-2-Sông, kênh đang đào(0.4mm)",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "MangDanNuocL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "MangDanNuocL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "80-Máng dẫn nước",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "MatNuocTinh",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "MatNuocTinh_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "72-b-Nền sông suối, ao hồ",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "MatNuocTinh_SoDo",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "72-b-Nền sông suối, ao hồ",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "NguonNuoc",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "NguonNuoc_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "97-Nguồn nước nóng",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "96-Giếng nước",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "SongSuoiA",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "SongSuoiA_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "72-b-Nền sông suối, ao hồ",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "SongSuoiA_SoDo",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "72-b-Nền sông suối, ao hồ",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "SongSuoiL",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "SongSuoiL_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Sông suối W= 0,1 - 0,12",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "Sông suối W= 0,12 - 0,15",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "Sông suối W= 0,15 - 0,18",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "Sông suối W= 0,18 - 0,2",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "Sông suối W= 0,2 - 0,22",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "Sông suối W= 0,22 - 0,24",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "Sông suối W= 0,24 - 0,26",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "Sông suối W= 0,26 - 0,28",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "9",
+                "nameRule": "Sông suối W= 0,28 - 0,3",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "10",
+                "nameRule": "Sông suối W= 0,3 - 0,32",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "11",
+                "nameRule": "Sông suối W= 0,32 - 0,34",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "12",
+                "nameRule": "Sông suối W= 0,34 - 0,36",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "13",
+                "nameRule": "Sông suối W= 0,36 - 0,38",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "14",
+                "nameRule": "Sông suối W= 0,38 - 0,4",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "15",
+                "nameRule": "Sông suối W= 0,4 - 0,42",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "16",
+                "nameRule": "Sông suối W= 0,42 - 0,44",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "17",
+                "nameRule": "Sông suối W= 0,44 - 0,46",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "18",
+                "nameRule": "Sông suối W= 0,46 - 0,48",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "19",
+                "nameRule": "Sông suối W= 0,48 - 0,5",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "20",
+                "nameRule": "Sông suối W= 0,5",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "21",
+                "nameRule": "73-a-Sông suối có nước theo mùa W=0,1",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "22",
+                "nameRule": "75-a1-Sông suối mất tích XĐ đc dòng chảy (nét đơn)",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "SongSuoiL_SoDo",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Rule_1",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "TaluyCongTrinhThuyLoi",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "TaluyThuyLoi_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "Địa hình cắt xẻ nhân tạo",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "41-Các loại ranh giới khác",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "DamLay",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "DamLay_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "112- Đầm lầy",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "Temp",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "BaiBoiA_Rep_1",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "68-3-a-Bãi cát ven bờ (trên đường mép nước)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "68-3-b-Bãi cát ven bờ (dưới đường mép nước)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "68-1-a-Bãi bùn ven bờ (trên đường mép nước)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "68-1-b-Bãi bùn ven bờ (dưới đường mép nước)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "68-4-a-Bãi đá, sỏi ven bờ (trên đường mép nước)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "68-4-b-Bãi đá, sỏi ven bờ (dưới đường mép nước)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "68-2-a-Bãi bùn lẫn cát ven bờ (trên đường mép nước)",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "68-2-b-Bãi bùn lẫn cát ven bờ (dưới đường mép nước)",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nameFeatureDataset": "PhuBeMat",
+    "listFeatureClass": [
+      {
+        "nameFeatureClass": "RanhGioiPhuBeMat",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "RanhGioiPhuBeMat_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "41-Các loại ranh giới khác",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nameFeatureClass": "PhuBeMat",
+        "listRepresentation": [
+          {
+            "nameRepresentation": "PhuBeMat_Rep",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "116-Ruộng lúa",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "117-Rau, màu, cây công nghiệp ngắn ngày",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "115-a-Cây bụi",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "121-Vùng đất trống",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "5",
+                "nameRule": "118-b-Cỏ không ngập nước",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "6",
+                "nameRule": "114-a-Cây công nghiệp lâu năm",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "7",
+                "nameRule": "114-b-Cây ăn quả lâu năm",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "8",
+                "nameRule": "cây ưa mặn, chua phèn dưới nước",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "9",
+                "nameRule": "cây lá rộng",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "10",
+                "nameRule": "cây lá kim",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "11",
+                "nameRule": "cây hỗn hợp",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "12",
+                "nameRule": "cây tre nứa",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "13",
+                "nameRule": "cây dừa cọ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "14",
+                "nameRule": "cây ưa mặn",
+                "querySQL": ""
+              }
+            ]
+          },
+          {
+            "nameRepresentation": "PhuBeMat_Nen",
+            "listRule": [
+              {
+                "ruleID": "0",
+                "nameRule": "null",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "1",
+                "nameRule": "72-b-Nền sông suối, ao hồ",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "2",
+                "nameRule": "113-1-Nền rừng phát triển",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "3",
+                "nameRule": "113-2-Nền rừng tái sinh",
+                "querySQL": ""
+              },
+              {
+                "ruleID": "4",
+                "nameRule": "113-1h-Khu thực phủ có dân cư",
+                "querySQL": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
