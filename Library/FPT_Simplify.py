@@ -154,11 +154,9 @@ class FPT_Simplify:
                 for element in listPolyLine:
                     arcpy.AddMessage("\n# Xu ly lop: {0}".format(element["LayerName"]))
                     layerPath = duongDanNguon + "/" +  element["DatasetName"] + "/" + element["LayerName"]
-                    '''
                     if element["LayerName"] == "DuongBinhDo":
                         arcpy.AddField_management(layerPath, "OLD_OBJECTID", "LONG", None, None, None,"OLD_OBJECTID", "NULLABLE")
                         arcpy.CalculateField_management(layerPath, "OLD_OBJECTID", "!OBJECTID!", "PYTHON_9.3")
-                    '''
                     arcpy.MakeFeatureLayer_management(layerPath, element["featureLayer"])
                     arcpy.AddField_management(element["featureLayer"], element["FID_XXX"], "LONG")
                     with arcpy.da.UpdateCursor(element["featureLayer"], ["OID@", element["FID_XXX"]]) as cursor:
