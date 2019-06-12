@@ -3,6 +3,7 @@ import arcpy
 import arcpy.management as DM
 import arcpy.analysis as AN
 import os
+import sys
 class FPT_DuongBoNuoc:
     def __init__(self, duong_dan_nguon, duong_dan_dich, lop_thuy_he, lop_bai_boi, khoang_Cach, loai_ranh_gioi_nuoc_mat):
         self.duong_dan_nguon = duong_dan_nguon
@@ -116,4 +117,30 @@ class FPT_DuongBoNuoc:
         arcpy.CopyFeatures_management(DuongBoNuoc_Path, self.duong_dan_dich + "ThuyHe/DuongBoNuoc")
 
 if __name__=='__main__':
-    abc = 1
+    _duongDanNguon = "C:/Generalize_25_50/50K_Process.gdb/"
+    _duongDanDich = "C:/Generalize_25_50/50K_Final.gdb/"
+    _baiBoiA = "BaiBoiA"
+    _songSuoiA = "SongSuoiA"
+    _matNuocTinh = "MatNuocTinh"
+    _kenhMuongA = "KenhMuongA"
+    _duongMepNuoc = "DuongMepNuoc"
+    _khoang_Cach = "1 Meters"#sys.argv[1:]#"1 Meters"
+    #--------------------------Tiền xử lý bãi bồi---------------------------------
+    arcpy.AddMessage("Bat dau xu ly Duong Bo Nuoc")
+    arcpy.AddMessage("Tien xu ly bai boi")
+    #arcpy.Densify_edit(_duongDanNguon + "ThuyHe/" + _baiBoiA, "DISTANCE","1 Meters",None ,None)
+    #--------------------------Xử lý sông suối ------------------------------
+    arcpy.AddMessage("Xu ly Song Suoi")
+    obj_duong_bo_nuoc = FPT_DuongBoNuoc(_duongDanNguon, _duongDanDich, _songSuoiA,_baiBoiA,_khoang_Cach, 6)
+    obj_duong_bo_nuoc.xu_ly_duong_bo_nuoc()
+    #--------------------------Xử lý mặt nước tĩnh ------------------------------
+    arcpy.AddMessage("Xu ly Mat nuoc tinh")
+    obj_duong_bo_nuoc = FPT_DuongBoNuoc(_duongDanNguon, _duongDanDich, _matNuocTinh,_baiBoiA,_khoang_Cach, 1)
+    obj_duong_bo_nuoc.xu_ly_duong_bo_nuoc()
+    #--------------------------Xử lý kênh mương------------------------------
+    arcpy.AddMessage("Xu ly Kenh muong")
+    obj_duong_bo_nuoc = FPT_DuongBoNuoc(_duongDanNguon, _duongDanDich, _kenhMuongA,_baiBoiA,_khoang_Cach, 4)
+    obj_duong_bo_nuoc.xu_ly_duong_bo_nuoc()
+    
+    #--------------------------Append---------------------------------------
+    obj_duong_bo_nuoc.append_DuongBoNuoc()

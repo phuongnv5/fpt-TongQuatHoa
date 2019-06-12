@@ -44,7 +44,7 @@ class FPT_RanhGioiPhuBeMat:
                         iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], 1])
             arcpy.CopyFeatures_management(RanhGioiPhuBeMat_Path, RanhGioiPhuBeMat_Dich_Path)
             arcpy.CopyFeatures_management(RanhGioiPhuBeMat_Path, PhuBeMat_Dich_Path)
-            arcpy.AddMessage("\n# Hoan thanh!!!")
+            #arcpy.AddMessage("\n# Hoan thanh!!!")
         except OSError as error:
             arcpy.AddMessage("Error" + error.message)
         except ValueError as error:
@@ -54,4 +54,7 @@ class FPT_RanhGioiPhuBeMat:
         finally:
             arcpy.Delete_management("in_memory")
 if __name__=='__main__':
-    abc = 1
+    arcpy.AddMessage("#Xu ly Ranh gioi phu be mat")
+    obj = FPT_RanhGioiPhuBeMat()
+    obj.CreateRanhGioiPhuBeMat()
+    arcpy.AddMessage("#Hoan thanh !!!")

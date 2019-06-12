@@ -17,6 +17,7 @@ class FPT_DuongDiaGioi:
             DiaPhan_Name = "DiaPhan"
             DiaPhan_Lyr = "DiaPhan_Lyr"
             DiaPhan_Path = duongDanNguon + "/BienGioiDiaGioi/" + DiaPhan_Name
+            DiaPhan_Path_Final = duongDanDich + "/BienGioiDiaGioi/" + DiaPhan_Name
             DiaPhan_Xa_Path = DiaPhan_Path + "_Xa"
             DiaPhan_Huyen_Path = DiaPhan_Path + "_Huyen"
             DiaPhan_Tinh_Path = DiaPhan_Path + "_Tinh"
@@ -29,8 +30,12 @@ class FPT_DuongDiaGioi:
             DuongDiaGioi_Name = "DuongDiaGioi"
             DuongDiaGioi_Path = duongDanNguon + "/BienGioiDiaGioi/" + DuongDiaGioi_Name
             DuongDiaGioi_Dich_Path = duongDanDich + "/BienGioiDiaGioi/" + DuongDiaGioi_Name
-            arcpy.Integrate_management([[DiaPhan_Path, 1]], "1 Meters")
-
+            songSuoiL_Path = duongDanNguon + "/ThuyHe/SongSuoiL"
+            songSuoiL_Path_Final = duongDanDich + "/ThuyHe/SongSuoiL"
+            doanTimDuongBo_Path = duongDanNguon + "/GiaoThong/DoanTimDuongBo"
+            doanTimDuongBo_Path_Final = duongDanDich + "/GiaoThong/DoanTimDuongBo"
+            #arcpy.Integrate_management([[DiaPhan_Path, 1], [songSuoiL_Path, 2], [doanTimDuongBo_Path, 3]], "5 Meters")
+            
             #Xa
             arcpy.MakeFeatureLayer_management(DiaPhan_Path, DiaPhan_Lyr)
             arcpy.SelectLayerByAttribute_management(DiaPhan_Lyr, "NEW_SELECTION", "doiTuong = 3")
@@ -165,9 +170,12 @@ class FPT_DuongDiaGioi:
                 with arcpy.da.InsertCursor(DuongDiaGioi_Path, duongDiaGioiFields2) as iCur:
                     for sRow in sCur:
                         iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12], 1, 2])
-            #arcpy.CalculateField_management(DuongDiaGioi_Path, "DuongDiaGioi_Rep_ID", 1, "PYTHON_9.3")
+            
+            #arcpy.Snap_edit(songSuoiL_Path, [[DuongDiaGioi_Path, "EDGE", "5 Meters"]])
             arcpy.CopyFeatures_management(DuongDiaGioi_Path, DuongDiaGioi_Dich_Path)
-            arcpy.AddMessage("\n# Hoan thanh!!!")
+            arcpy.CopyFeatures_management(songSuoiL_Path, songSuoiL_Path_Final)
+            arcpy.CopyFeatures_management(DiaPhan_Path, DiaPhan_Path_Final)
+            arcpy.CopyFeatures_management(doanTimDuongBo_Path, doanTimDuongBo_Path_Final)
         except OSError as error:
             arcpy.AddMessage("Error" + error.message)
         except ValueError as error:
@@ -177,5 +185,6 @@ class FPT_DuongDiaGioi:
         finally:
             arcpy.Delete_management("in_memory")
 if __name__=='__main__':
+    arcpy.AddMessage("#Xu ly duong dia gioi")
     obj = FPT_DuongDiaGioi()
     obj.CreateDuongDiaGioi()

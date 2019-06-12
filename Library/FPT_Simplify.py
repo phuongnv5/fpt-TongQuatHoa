@@ -15,7 +15,7 @@ class FPT_Simplify:
             arcpy.env.overwriteOutput = 1
             duongDanNguon = "C:/Generalize_25_50/50K_Process.gdb"
             duongDanDich = "C:/Generalize_25_50/50K_Final.gdb"
-            urlFile = '/Config/ConfigSimplify.json'
+            urlFile = '/ConfigSimplify.json'
             _algorithm = "BEND_SIMPLIFY"
             _tolerance = "50 Meters"
             _error_option = "NO_CHECK"
@@ -23,13 +23,18 @@ class FPT_Simplify:
             #Doc file config
             s1 = inspect.getfile(inspect.currentframe())
             s2 = os.path.dirname(s1)
-            s3 = os.path.dirname(s2)
-            urlFile = s3 + urlFile
+            urlFile = s2 + urlFile
             arcpy.AddMessage("\n# Doc file cau hinh: \"{0}\"".format(urlFile))
             if os.path.exists(urlFile):
                 fileConfig = open(urlFile)
                 listLayerConfig = json.load(fileConfig)
                 fileConfig.close()
+                #Chuẩn hóa lại dữ liệu Bải bồi
+                arcpy.Integrate_management([[duongDanNguon + "/BienGioiDiaGioi/DiaPhan", 1], [duongDanNguon + "/ThuyHe/SongSuoiA", 2], 
+                 [duongDanNguon + "/ThuyHe/SongSuoiL", 3], [duongDanNguon + "/ThuyHe/MatNuocTinh", 4], [duongDanNguon + "/ThuyHe/KenhMuongA", 5], 
+                 [duongDanNguon + "/ThuyHe/BaiBoiA", 6], [duongDanNguon + "/GiaoThong/DoanTimDuongBo", 7]], "5 Meters")
+                #arcpy.Integrate_management([[duongDanNguon + "/ThuyHe/MatNuocTinh", 1], [duongDanNguon + "/ThuyHe/BaiBoiA", 2]], "5 Meters")
+                #arcpy.Integrate_management([[duongDanNguon + "/ThuyHe/KenhMuongA", 1], [duongDanNguon + "/ThuyHe/BaiBoiA", 2]], "5 Meters")
                 ############################### Simplify Polygon ########################################
                 
                 arcpy.AddMessage("\n# Bat dau Simplify Polygon")
@@ -53,7 +58,7 @@ class FPT_Simplify:
                         arcpy.AddMessage("\n# Buffer lop: \"{0}\"".format(objConfig["LayerName"]))
                         layerPath = duongDanNguon + "/" +  objConfig["DatasetName"] + "/" + objConfig["LayerName"]
                         arcpy.Buffer_analysis(in_features = layerPath, out_feature_class = layerPath + "_Buffer", 
-                            buffer_distance_or_field = "0.05 Meters", line_side = "RIGHT")
+                            buffer_distance_or_field = "0.1 Meters", line_side = "RIGHT")
                         temp = {
                             "LayerType": objConfig["LayerType"],
                             "DatasetName": objConfig["DatasetName"],
@@ -96,6 +101,7 @@ class FPT_Simplify:
                                                 out_feature_class = outPathSimplify,
                                                 algorithm = _algorithm,
                                                 tolerance = _tolerance,
+                                                minimum_area = "0 SquareMeters",
                                                 error_option = _error_option,
                                                 collapsed_point_option = _collapsed_point_option)
                 ## MakeLayerFeature ##
@@ -249,7 +255,7 @@ class FPT_Simplify:
                         arcpy.DeleteField_management(layerPath, [element["FID_XXX"]])  
                         arcpy.CopyFeatures_management(layerPath, layerFinalPath)         
                 
-                arcpy.AddMessage("\n# Hoan thanh!!!")
+                #arcpy.AddMessage("\n# Hoan thanh!!!")
             else:
                 arcpy.AddMessage("\n# Khong tim thay file cau hinh: \"{0}\"".format(urlFile))
         except OSError as error:

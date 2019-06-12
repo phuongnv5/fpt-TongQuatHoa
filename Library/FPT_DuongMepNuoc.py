@@ -13,6 +13,7 @@ class FPT_DuongMepNuoc:
         self.loai_ranh_gioi_nuoc_mat = loai_ranh_gioi_nuoc_mat
     
     def xu_ly_duong_mep_nuoc (self):
+        arcpy.env.overwriteOutput = 1
         inFeatures = [[self.duong_dan_nguon + "ThuyHe/" + self.lop_thuy_he,1], [self.duong_dan_nguon + "ThuyHe/" + self.lop_bai_boi,2]]
         intersectOutput = self.duong_dan_nguon + "ThuyHe/" + self.lop_duong_mep_nuoc + "_" + self.lop_thuy_he
         arcpy.Intersect_analysis(inFeatures, intersectOutput, "NO_FID", None, "LINE")
@@ -45,7 +46,28 @@ class FPT_DuongMepNuoc:
                     iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], sRow[5], sRow[6], sRow[7], sRow[8], sRow[9], 1])
         arcpy.CopyFeatures_management(DuongMepNuoc_Path, self.duong_dan_dich + "ThuyHe/DuongMepNuoc")
 if __name__=='__main__':
-    arcpy.env.overwriteOutput = 1
-    obj_duong_mep_nuoc = FPT_DuongMepNuoc("C:/Generalize_25_50/50K_Process.gdb/", "C:/Generalize_25_50/50K_Final.gdb/",
-     "SongSuoiA", "BaiBoiA", "DuongMepNuoc", 6)
+    _duongDanNguon = "C:/Generalize_25_50/50K_Process.gdb/"
+    _duongDanDich = "C:/Generalize_25_50/50K_Final.gdb/"
+    _baiBoiA = "BaiBoiA"
+    _songSuoiA = "SongSuoiA"
+    _matNuocTinh = "MatNuocTinh"
+    _kenhMuongA = "KenhMuongA"
+    _duongMepNuoc = "DuongMepNuoc"
+    _khoang_Cach = "1 Meters"
+
+    arcpy.AddMessage("Bat dau xu ly Duong Mep Nuoc")
+    arcpy.AddMessage("Xu ly Song Suoi")
+    obj_duong_mep_nuoc = FPT_DuongMepNuoc(_duongDanNguon, _duongDanDich, _songSuoiA, _baiBoiA, _duongMepNuoc, 6)
+    
+    obj_duong_mep_nuoc.xu_ly_duong_mep_nuoc()
+    arcpy.AddMessage("Xu ly Mat nuoc tinh")
+    obj_duong_mep_nuoc = FPT_DuongMepNuoc(_duongDanNguon, _duongDanDich,_matNuocTinh, _baiBoiA, _duongMepNuoc, 1)
+    obj_duong_mep_nuoc.xu_ly_duong_mep_nuoc()
+    arcpy.AddMessage("Xu ly Kenh muong")
+    obj_duong_mep_nuoc = FPT_DuongMepNuoc(_duongDanNguon, _duongDanDich,_kenhMuongA, _baiBoiA, _duongMepNuoc, 4)
+    obj_duong_mep_nuoc.xu_ly_duong_mep_nuoc()
+    
     obj_duong_mep_nuoc.append_DuongMepNuoc()
+    
+    #--------------------------COPY BAI BOI A--------------------------------------
+    arcpy.CopyFeatures_management(_duongDanNguon + "ThuyHe/BaiBoiA" ,_duongDanDich + "ThuyHe/BaiBoiA")
