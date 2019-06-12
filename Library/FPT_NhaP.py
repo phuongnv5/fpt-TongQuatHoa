@@ -11,7 +11,7 @@ class FPT_NhaP:
     def Dich_Nha(self):
         try:
             arcpy.env.overwriteOutput = 1
-            arcpy.AddError("#Xu ly lop NhaP")
+            arcpy.AddMessage("#Xu ly lop NhaP")
             _path_Layer_NhaP = "C:/Generalize_25_50/50K_Process.gdb/DanCuCoSoHaTang/NhaP"
             _path_Layer_NhaP_Final = "C:/Generalize_25_50/50K_Final.gdb/DanCuCoSoHaTang/NhaP"
             _path_Layer_DoanTimDuongBo = "C:/Generalize_25_50/50K_Process.gdb/GiaoThong/DoanTimDuongBo"
