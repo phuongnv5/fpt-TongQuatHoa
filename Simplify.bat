@@ -6,12 +6,17 @@ echo.Start Time: %time%
 echo.Running...
 echo.
 
+c:
+cd %python27%
 :: Runs your command
-python Library/FPT_Simplify.py
-python Library/FPT_DuongBoNuoc.py
-python Library/FPT_DuongMepNuoc.py
-python Library/FPT_DuongDiaGioi.py
-python Library/FPT_RanhGioiPhuBeMat.py
+python %~dp0%Library\FPT_Simplify.py
+python %~dp0%Library\FPT_DuongBoNuoc.py
+python %~dp0%Library\FPT_DuongMepNuoc.py
+python %~dp0%Library\FPT_DuongDiaGioi.py
+python %~dp0%Library\FPT_RanhGioiPhuBeMat.py
+fme %~dp0%Nan_Nha_Doi_Ben.fmw
+python %~dp0%Library\FPT_NhaP.py
+python %~dp0%Library\FPT_DoanVuotSongSuoiP.py
 
 set end=%time%
 set options="tokens=1-4 delims=:.,"

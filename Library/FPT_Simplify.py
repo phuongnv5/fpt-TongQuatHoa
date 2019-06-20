@@ -29,12 +29,6 @@ class FPT_Simplify:
                 fileConfig = open(urlFile)
                 listLayerConfig = json.load(fileConfig)
                 fileConfig.close()
-                #Chuẩn hóa lại dữ liệu Bải bồi
-                arcpy.Integrate_management([[duongDanNguon + "/BienGioiDiaGioi/DiaPhan", 1], [duongDanNguon + "/ThuyHe/SongSuoiA", 2], 
-                 [duongDanNguon + "/ThuyHe/SongSuoiL", 3], [duongDanNguon + "/ThuyHe/MatNuocTinh", 4], [duongDanNguon + "/ThuyHe/KenhMuongA", 5], 
-                 [duongDanNguon + "/ThuyHe/BaiBoiA", 6], [duongDanNguon + "/GiaoThong/DoanTimDuongBo", 7]], "5 Meters")
-                #arcpy.Integrate_management([[duongDanNguon + "/ThuyHe/MatNuocTinh", 1], [duongDanNguon + "/ThuyHe/BaiBoiA", 2]], "5 Meters")
-                #arcpy.Integrate_management([[duongDanNguon + "/ThuyHe/KenhMuongA", 1], [duongDanNguon + "/ThuyHe/BaiBoiA", 2]], "5 Meters")
                 ############################### Simplify Polygon ########################################
                 
                 arcpy.AddMessage("\n# Bat dau Simplify Polygon")
@@ -69,6 +63,7 @@ class FPT_Simplify:
                             "FID_XXX": "FID_" + objConfig["LayerName"]
                         }
                         listPolygon.append(temp)
+
                 
                 for element in listPolygon:
                     arcpy.AddMessage("\n# Xu ly lop: {0}".format(element["LayerName"]))
@@ -88,6 +83,9 @@ class FPT_Simplify:
                 for field in fieldMappings.fields:
                     if field.name not in enableFields:
                         fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
+
+
+                
                 ## Merge ##
                 arcpy.AddMessage("\n# Merge Polygon...")
                 outPathMerge = "in_memory\\outPathMergeTemp"
@@ -135,6 +133,9 @@ class FPT_Simplify:
                             if found == False:
                                 cursor.deleteRow()
                 arcpy.AddMessage("\n# Hoan thanh Simplify Polygon!!!")
+
+
+                
                 
                 
                 ############################################## Simplify Line #############################
@@ -145,7 +146,7 @@ class FPT_Simplify:
                 enableFieldLine = []
                 inputsMergeLine = []
                 for objConfig in listLayerConfig:
-                    if objConfig["LayerType"] == "Polyline" and objConfig["RunStatus"] == "True" and objConfig["LayerName"] == "DuongBinhDo":
+                    if objConfig["LayerType"] == "Polyline" and objConfig["RunStatus"] == "True":
                         temp = {
                             "LayerType": objConfig["LayerType"],
                             "DatasetName": objConfig["DatasetName"],
@@ -182,9 +183,15 @@ class FPT_Simplify:
                 arcpy.AddMessage("\n# Merge Polyline...")
                 outPathMerge = "in_memory\\outPathMergeTemp"
                 arcpy.Merge_management (inputsMergeLine, outPathMerge, fieldMappingLine)
-                ## Simplify Polygon ##
+                ## Simplify Polyline ##
                 arcpy.AddMessage("\n# Simplify Polyline...")
                 outPathSimplify = "in_memory\\outPathSimplifyTemp"
+                '''
+                arcpy.MakeFeatureLayer_management(duongDanNguon + "/ThuyHe/SongSuoiA", "ThuyHe_SongSuoiA_Lyr")
+                arcpy.MakeFeatureLayer_management(duongDanNguon + "/ThuyHe/MatNuocTinh", "ThuyHe_MatNuocTinh_Lyr")
+                arcpy.MakeFeatureLayer_management(duongDanNguon + "/ThuyHe/KenhMuongA", "ThuyHe_KenhMuongA_Lyr")
+                in_barriers_Line = ["ThuyHe_SongSuoiA_Lyr", "ThuyHe_MatNuocTinh_Lyr", "ThuyHe_KenhMuongA_Lyr"]
+                '''
                 arcpy.SimplifyLine_cartography(in_features = outPathMerge, 
                         out_feature_class = outPathSimplify, 
                         algorithm = _algorithm, 
@@ -224,6 +231,7 @@ class FPT_Simplify:
                 arcpy.AddMessage("\n# Hoan thanh Simplify Polyline!!!")
                 
                 ############################################## Snap Line to Polygon #############################
+                
                 arcpy.AddMessage("\n# Bat dau Snap")
                 for elementPolygon in listPolygon:
                     if elementPolygon["LayerType"] == "Polyline":
@@ -233,7 +241,7 @@ class FPT_Simplify:
                             layerBufferPath = duongDanNguon + "/" +  elementPolygon["DatasetName"] + "/" + elementPolygon["LayerName"]
                             layerLinePath = duongDanNguon + "/" +  elementPolygon["DatasetName"] + "/" + lineLayerName
                             arcpy.Snap_edit(layerLinePath, [[layerBufferPath, "EDGE", self.snap_distance]])
-
+                
                 ############################################## Copy to final #############################
                 for element in listPolygon:
                     if element["LayerType"] == "Polygon":
@@ -241,13 +249,13 @@ class FPT_Simplify:
                         layerFinalPath = duongDanDich + "/" +  element["DatasetName"] + "/" + element["LayerName"]
                         arcpy.DeleteField_management(layerPath, [element["FID_XXX"]])
                         arcpy.CopyFeatures_management(layerPath, layerFinalPath)
-                
+                '''
                 for objConfig in listLayerConfig:
                     if objConfig["LayerType"] == "Polyline" and objConfig["RunStatus"] == "True":
                         layerPath = duongDanNguon + "/" +  objConfig["DatasetName"] + "/" + objConfig["LayerName"]
                         layerFinalPath = duongDanDich + "/" +  objConfig["DatasetName"] + "/" + objConfig["LayerName"]
                         arcpy.CopyFeatures_management(layerPath, layerFinalPath)
-                
+                '''
                 for element in listPolyLine:
                     if element["LayerType"] == "Polyline":
                         layerPath = duongDanNguon + "/" +  element["DatasetName"] + "/" + element["LayerName"]

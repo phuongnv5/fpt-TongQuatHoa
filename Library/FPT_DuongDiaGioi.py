@@ -35,6 +35,11 @@ class FPT_DuongDiaGioi:
             doanTimDuongBo_Path = duongDanNguon + "/GiaoThong/DoanTimDuongBo"
             doanTimDuongBo_Path_Final = duongDanDich + "/GiaoThong/DoanTimDuongBo"
             #arcpy.Integrate_management([[DiaPhan_Path, 1], [songSuoiL_Path, 2], [doanTimDuongBo_Path, 3]], "5 Meters")
+            arcpy.Integrate_management([[DiaPhan_Path, 1]], "1 Meters")
+            arcpy.Snap_edit(DiaPhan_Path, 
+                [[duongDanNguon + "/ThuyHe/SongSuoiL", "VERTEX", "25 Meters"], [duongDanNguon + "/ThuyHe/SongSuoiL", "EDGE", "25 Meters"]])
+            arcpy.Snap_edit(DiaPhan_Path, 
+                [[duongDanNguon + "/GiaoThong/DoanTimDuongBo", "VERTEX", "5 Meters"], [duongDanNguon + "/GiaoThong/DoanTimDuongBo", "EDGE", "5 Meters"]])
             
             #Xa
             arcpy.MakeFeatureLayer_management(DiaPhan_Path, DiaPhan_Lyr)
@@ -171,7 +176,27 @@ class FPT_DuongDiaGioi:
                     for sRow in sCur:
                         iCur.insertRow([sRow[0], sRow[1], sRow[2], sRow[3], sRow[4], 1, sRow[6], sRow[7], sRow[8], sRow[9], sRow[10], sRow[11], sRow[12], 1, 2])
             
-            #arcpy.Snap_edit(songSuoiL_Path, [[DuongDiaGioi_Path, "EDGE", "5 Meters"]])
+            ############################################### Snap Other ############################
+            '''
+            arcpy.AddMessage("\n#Snap DoanTimDuongBo")
+            arcpy.Densify_edit(duongDanNguon + "/GiaoThong/DoanTimDuongBo", "DISTANCE","10 Meters",None ,None)
+            arcpy.Snap_edit(duongDanNguon + "/GiaoThong/DoanTimDuongBo", 
+                [[DuongDiaGioi_Path, "VERTEX", "10 Meters"], [DuongDiaGioi_Path, "EDGE", "10 Meters"]])
+            arcpy.AddMessage("\n#Snap SongSuoiL")
+            arcpy.Densify_edit(duongDanNguon + "/ThuyHe/SongSuoiL", "DISTANCE","10 Meters",None ,None)
+            arcpy.Snap_edit(duongDanNguon + "/ThuyHe/SongSuoiL", 
+                [[DuongDiaGioi_Path, "VERTEX", "10 Meters"], [DuongDiaGioi_Path, "EDGE", "10 Meters"]])
+            '''
+            '''
+            arcpy.AddMessage("\n#Snap DoanTimDuongBo")
+            arcpy.Densify_edit(DuongDiaGioi_Path, "DISTANCE","10 Meters",None ,None)
+            arcpy.Snap_edit(DuongDiaGioi_Path, 
+                [[duongDanNguon + "/GiaoThong/DoanTimDuongBo", "VERTEX", "10 Meters"], [duongDanNguon + "/GiaoThong/DoanTimDuongBo", "EDGE", "10 Meters"]])
+            arcpy.AddMessage("\n#Snap SongSuoiL")
+            arcpy.Snap_edit(DuongDiaGioi_Path, 
+                [[duongDanNguon + "/ThuyHe/SongSuoiL", "VERTEX", "10 Meters"], [duongDanNguon + "/ThuyHe/SongSuoiL", "EDGE", "10 Meters"]])
+            '''
+
             arcpy.CopyFeatures_management(DuongDiaGioi_Path, DuongDiaGioi_Dich_Path)
             arcpy.CopyFeatures_management(songSuoiL_Path, songSuoiL_Path_Final)
             arcpy.CopyFeatures_management(DiaPhan_Path, DiaPhan_Path_Final)
