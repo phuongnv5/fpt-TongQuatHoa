@@ -430,7 +430,13 @@
         "LayerName": "SongSuoiL", 
         "RunStatus": "True", 
         "LayerType": "Polyline"
-    }, 
+    },
+    {
+        "DatasetName": "ThuyHe", 
+        "LayerName": "SongSuoiL_KenhMuongL_SnapPBM", 
+        "RunStatus": "True", 
+        "LayerType": "Polyline"
+    },
     {
         "DatasetName": "ThuyHe", 
         "LayerName": "TaluyCongTrinhThuyLoi", 
@@ -458,6 +464,12 @@
     {
         "DatasetName": "PhuBeMat", 
         "LayerName": "PhuBeMat", 
+        "RunStatus": "True", 
+        "LayerType": "Polygon"
+    },
+    {
+        "DatasetName": "PhuBeMat", 
+        "LayerName": "PhuBeMat_Full", 
         "RunStatus": "True", 
         "LayerType": "Polygon"
     }

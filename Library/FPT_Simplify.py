@@ -20,6 +20,11 @@ class FPT_Simplify:
             _tolerance = "50 Meters"
             _error_option = "NO_CHECK"
             _collapsed_point_option = "NO_KEEP"
+            _checkExitLayer = False
+            if arcpy.Exists(duongDanNguon + "/ThuyHe/SongSuoiL_KenhMuongL_SnapPBM") and arcpy.Exists(duongDanNguon + "/PhuBeMat/PhuBeMat_Full"):
+                #arcpy.CopyFeatures_management(duongDanNguon + "/PhuBeMat/PhuBeMat_LocMatNuoc", duongDanNguon + "/PhuBeMat/PhuBeMat")
+                _checkExitLayer = True
+                
             #Doc file config
             s1 = inspect.getfile(inspect.currentframe())
             s2 = os.path.dirname(s1)
@@ -30,7 +35,7 @@ class FPT_Simplify:
                 listLayerConfig = json.load(fileConfig)
                 fileConfig.close()
                 ############################### Simplify Polygon ########################################
-                
+                arcpy.Integrate_management([[duongDanNguon + "/PhuBeMat/PhuBeMat", 1]], "2 Meters")
                 arcpy.AddMessage("\n# Bat dau Simplify Polygon")
                 listPolygon = []
                 fieldMappings = arcpy.FieldMappings()
@@ -38,31 +43,33 @@ class FPT_Simplify:
                 inputsMerge = []
                 for objConfig in listLayerConfig:
                     if objConfig["LayerType"] == "Polygon" and objConfig["RunStatus"] == "True":
-                        temp = {
-                            "LayerType": objConfig["LayerType"],
-                            "DatasetName": objConfig["DatasetName"],
-                            "LayerName": objConfig["LayerName"],
-                            "featureLayer": "in_memory\\" + objConfig["LayerName"] + "_Layer",
-                            "featureCopy": "in_memory\\" + objConfig["LayerName"] + "_Copy",
-                            "featureCopyLayer": "in_memory\\" + objConfig["LayerName"] + "_Copy_Layer",
-                            "FID_XXX": "FID_" + objConfig["LayerName"]
-                        }
-                        listPolygon.append(temp)
+                        if not(_checkExitLayer == False and objConfig["LayerName"] == "PhuBeMat_Full"):
+                            temp = {
+                                "LayerType": objConfig["LayerType"],
+                                "DatasetName": objConfig["DatasetName"],
+                                "LayerName": objConfig["LayerName"],
+                                "featureLayer": "in_memory\\" + objConfig["LayerName"] + "_Layer",
+                                "featureCopy": "in_memory\\" + objConfig["LayerName"] + "_Copy",
+                                "featureCopyLayer": "in_memory\\" + objConfig["LayerName"] + "_Copy_Layer",
+                                "FID_XXX": "FID_" + objConfig["LayerName"]
+                            }
+                            listPolygon.append(temp)
                     elif objConfig["LayerType"] == "Polyline" and objConfig["RunStatus"] == "True" and objConfig["LayerName"] <> "DuongBinhDo":
-                        arcpy.AddMessage("\n# Buffer lop: \"{0}\"".format(objConfig["LayerName"]))
-                        layerPath = duongDanNguon + "/" +  objConfig["DatasetName"] + "/" + objConfig["LayerName"]
-                        arcpy.Buffer_analysis(in_features = layerPath, out_feature_class = layerPath + "_Buffer", 
-                            buffer_distance_or_field = "0.1 Meters", line_side = "RIGHT")
-                        temp = {
-                            "LayerType": objConfig["LayerType"],
-                            "DatasetName": objConfig["DatasetName"],
-                            "LayerName": objConfig["LayerName"] + "_Buffer",
-                            "featureLayer": "in_memory\\" + objConfig["LayerName"] + "_Buffer_Layer",
-                            "featureCopy": "in_memory\\" + objConfig["LayerName"] + "_Buffer_Copy",
-                            "featureCopyLayer": "in_memory\\" + objConfig["LayerName"] + "_Buffer_Copy_Layer",
-                            "FID_XXX": "FID_" + objConfig["LayerName"]
-                        }
-                        listPolygon.append(temp)
+                        if not(_checkExitLayer == False and objConfig["LayerName"] == "SongSuoiL_KenhMuongL_SnapPBM"):
+                            arcpy.AddMessage("\n# Buffer lop: \"{0}\"".format(objConfig["LayerName"]))
+                            layerPath = duongDanNguon + "/" +  objConfig["DatasetName"] + "/" + objConfig["LayerName"]
+                            arcpy.Buffer_analysis(in_features = layerPath, out_feature_class = layerPath + "_Buffer", 
+                                buffer_distance_or_field = "0.1 Meters", line_side = "RIGHT")
+                            temp = {
+                                "LayerType": objConfig["LayerType"],
+                                "DatasetName": objConfig["DatasetName"],
+                                "LayerName": objConfig["LayerName"] + "_Buffer",
+                                "featureLayer": "in_memory\\" + objConfig["LayerName"] + "_Buffer_Layer",
+                                "featureCopy": "in_memory\\" + objConfig["LayerName"] + "_Buffer_Copy",
+                                "featureCopyLayer": "in_memory\\" + objConfig["LayerName"] + "_Buffer_Copy_Layer",
+                                "FID_XXX": "FID_" + objConfig["LayerName"]
+                            }
+                            listPolygon.append(temp)
 
                 
                 for element in listPolygon:
@@ -147,16 +154,17 @@ class FPT_Simplify:
                 inputsMergeLine = []
                 for objConfig in listLayerConfig:
                     if objConfig["LayerType"] == "Polyline" and objConfig["RunStatus"] == "True":
-                        temp = {
-                            "LayerType": objConfig["LayerType"],
-                            "DatasetName": objConfig["DatasetName"],
-                            "LayerName": objConfig["LayerName"],
-                            "featureLayer": "in_memory\\" + objConfig["LayerName"] + "_Layer",
-                            "featureCopy": "in_memory\\" + objConfig["LayerName"] + "_Copy",
-                            "featureCopyLayer": "in_memory\\" + objConfig["LayerName"] + "_Copy_Layer",
-                            "FID_XXX": "FID_" + objConfig["LayerName"]
-                        }
-                        listPolyLine.append(temp)
+                        if not(_checkExitLayer == False and objConfig["LayerName"] == "SongSuoiL_KenhMuongL_SnapPBM"):
+                            temp = {
+                                "LayerType": objConfig["LayerType"],
+                                "DatasetName": objConfig["DatasetName"],
+                                "LayerName": objConfig["LayerName"],
+                                "featureLayer": "in_memory\\" + objConfig["LayerName"] + "_Layer",
+                                "featureCopy": "in_memory\\" + objConfig["LayerName"] + "_Copy",
+                                "featureCopyLayer": "in_memory\\" + objConfig["LayerName"] + "_Copy_Layer",
+                                "FID_XXX": "FID_" + objConfig["LayerName"]
+                            }
+                            listPolyLine.append(temp)
                 
                 for element in listPolyLine:
                     arcpy.AddMessage("\n# Xu ly lop: {0}".format(element["LayerName"]))
@@ -242,27 +250,41 @@ class FPT_Simplify:
                             layerLinePath = duongDanNguon + "/" +  elementPolygon["DatasetName"] + "/" + lineLayerName
                             arcpy.Snap_edit(layerLinePath, [[layerBufferPath, "EDGE", self.snap_distance]])
                 
+                ############## Snap Other
+                if _checkExitLayer:
+                    arcpy.AddMessage("\n\t# Snap other: {0}".format("PhuBeMat"))
+                    arcpy.Integrate_management([[duongDanNguon + "/PhuBeMat/PhuBeMat", 1]], "2 Meters")
+                    arcpy.Densify_edit(duongDanNguon + "/PhuBeMat/PhuBeMat", "DISTANCE","2 Meters",None ,None)
+                    arcpy.Snap_edit(duongDanNguon + "/PhuBeMat/PhuBeMat", 
+                        [[duongDanNguon + "/ThuyHe/SongSuoiL_KenhMuongL_SnapPBM", "EDGE", "35 Meters"]])
+                    arcpy.Integrate_management([[duongDanNguon + "/ThuyHe/SongSuoiL_KenhMuongL_SnapPBM", 1],[duongDanNguon + "/PhuBeMat/PhuBeMat", 2]], "2 Meters")
+                    arcpy.Erase_analysis(in_features = duongDanNguon + "/PhuBeMat/PhuBeMat_Full", 
+                        erase_features = duongDanNguon + "/PhuBeMat/PhuBeMat", out_feature_class = duongDanNguon + "/PhuBeMat/PhuBeMat_Lo")
+                    arcpy.CalculateField_management(duongDanNguon + "/PhuBeMat/PhuBeMat_Lo", "maNhanDang", '"temp123"', "PYTHON_9.3")
+                    arcpy.Append_management([duongDanNguon + "/PhuBeMat/PhuBeMat_Lo"], duongDanNguon + "/PhuBeMat/PhuBeMat", "NO_TEST",None,None)
+                    arcpy.MultipartToSinglepart_management(duongDanNguon + "/PhuBeMat/PhuBeMat", duongDanNguon + "/PhuBeMat/PhuBeMat2")
+                    arcpy.MakeFeatureLayer_management(duongDanNguon + "/PhuBeMat/PhuBeMat2", "PhuBeMat_Temp_Lyr")
+                    arcpy.SelectLayerByAttribute_management("PhuBeMat_Temp_Lyr", "NEW_SELECTION", "maNhanDang = 'temp123'")
+                    arcpy.Eliminate_management(in_features = "PhuBeMat_Temp_Lyr", out_feature_class = duongDanNguon + "/PhuBeMat/PhuBeMat3", selection = "LENGTH")
+                    arcpy.Densify_edit(duongDanNguon + "/ThuyHe/SongSuoiL", "DISTANCE","2 Meters",None ,None)
+                    arcpy.Snap_edit(duongDanNguon + "/ThuyHe/SongSuoiL", 
+                        [[duongDanNguon + "/ThuyHe/SongSuoiL_KenhMuongL_SnapPBM", "EDGE", "2 Meters"]])
+                    arcpy.CopyFeatures_management(duongDanNguon + "/PhuBeMat/PhuBeMat3", duongDanNguon + "/PhuBeMat/PhuBeMat")
                 ############################################## Copy to final #############################
                 for element in listPolygon:
                     if element["LayerType"] == "Polygon":
-                        layerPath = duongDanNguon + "/" +  element["DatasetName"] + "/" + element["LayerName"]
-                        layerFinalPath = duongDanDich + "/" +  element["DatasetName"] + "/" + element["LayerName"]
-                        arcpy.DeleteField_management(layerPath, [element["FID_XXX"]])
-                        arcpy.CopyFeatures_management(layerPath, layerFinalPath)
-                '''
-                for objConfig in listLayerConfig:
-                    if objConfig["LayerType"] == "Polyline" and objConfig["RunStatus"] == "True":
-                        layerPath = duongDanNguon + "/" +  objConfig["DatasetName"] + "/" + objConfig["LayerName"]
-                        layerFinalPath = duongDanDich + "/" +  objConfig["DatasetName"] + "/" + objConfig["LayerName"]
-                        arcpy.CopyFeatures_management(layerPath, layerFinalPath)
-                '''
+                        if element["LayerName"] <> "PhuBeMat_Full":
+                            layerPath = duongDanNguon + "/" +  element["DatasetName"] + "/" + element["LayerName"]
+                            layerFinalPath = duongDanDich + "/" +  element["DatasetName"] + "/" + element["LayerName"]
+                            arcpy.DeleteField_management(layerPath, [element["FID_XXX"]])
+                            arcpy.CopyFeatures_management(layerPath, layerFinalPath)
                 for element in listPolyLine:
                     if element["LayerType"] == "Polyline":
-                        layerPath = duongDanNguon + "/" +  element["DatasetName"] + "/" + element["LayerName"]
-                        layerFinalPath = duongDanDich + "/" +  element["DatasetName"] + "/" + element["LayerName"]
-                        arcpy.DeleteField_management(layerPath, [element["FID_XXX"]])  
-                        arcpy.CopyFeatures_management(layerPath, layerFinalPath)         
-                
+                        if element["LayerName"] <> "SongSuoiL_KenhMuongL_SnapPBM":
+                            layerPath = duongDanNguon + "/" +  element["DatasetName"] + "/" + element["LayerName"]
+                            layerFinalPath = duongDanDich + "/" +  element["DatasetName"] + "/" + element["LayerName"]
+                            arcpy.DeleteField_management(layerPath, [element["FID_XXX"]])  
+                            arcpy.CopyFeatures_management(layerPath, layerFinalPath)         
                 #arcpy.AddMessage("\n# Hoan thanh!!!")
             else:
                 arcpy.AddMessage("\n# Khong tim thay file cau hinh: \"{0}\"".format(urlFile))
